@@ -63,22 +63,22 @@ LDFLAGS += -fopenmp
 
 # Debugging:
 
-#CFLAGS  += -g
-#LDFLAGS += -g
+CFLAGS   = -Wall -ansi -g -O0
+LDFLAGS  = -lm -g
 
 # Profiler:
 
-#CFLAGS  += -pg
-#LDFLAGS += -pg
+#CFLAGS   = -Wall -ansi -p -O3 -ffast-math
+#LDFLAGS  = -lm -p
 
 ###############################################################################
 
 OBJS	=	main.o \
-		map.o 
+		trick_or_treat.o 
 
 ###############################################################################
 
-EXE     = run_me
+EXE     = Trick_or_Treat
 
 DATE 	= -DMC_COMPILE_DATE="\"`date `\""
 
@@ -93,13 +93,7 @@ lbits := $(shell getconf LONG_BIT)
 
 ###############################################################################
 all:    check $(EXE)
-	@echo "go Compiled OK."
-
-debug: check $(EXE)
-	@echo "go Debug Compiled OK."
-
-profile: check $(EXE)
-	@echo "go Profile/Debug Compiled OK."
+	@echo "Trick_or_Treat Compiled OK."
 
 $(EXE): $(OBJS) 
 	$(CCM) $(OBJS) $(LDFLAGS) -o $(EXE)
@@ -109,8 +103,8 @@ clean:
 
 ###############################################################################
 
-main.o: main.cpp header.h
+main.o: main.cpp 
 	$(CC) $(CFLAGS) -c main.cpp
 
-map.o: mat.cpp header.h map.h
-	$(CC) $(CFLAGS) -c map.cpp 
+trick_or_treat.o: trick_or_treat.cpp header.h trick_or_treat.h
+	$(CC) $(CFLAGS) -c trick_or_treat.cpp 
