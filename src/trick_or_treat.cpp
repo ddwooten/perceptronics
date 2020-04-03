@@ -252,17 +252,17 @@ void trick_or_treat::report()
 	/* Loop backwards through the threads, this ensures the first workable
 	   answer is grabbed */
 
-	for(i = (num_threads - 1); i > 0; i--)
+	for(i = num_threads; i > 0; i--)
 	{
 
-		if(thread_answers[3 * i] > trick_or_treat_haul)
+		if(thread_answers[3 * (i - 1)] > trick_or_treat_haul)
 		{
 
-			trick_or_treat_haul = thread_answers[3 * i];
+			trick_or_treat_haul = thread_answers[3 * (i -1)];
 
-			trick_or_treat_start = thread_answers[ 3 * i + 1];
+			trick_or_treat_start = thread_answers[ 3 * (i -1) + 1];
 
-			trick_or_treat_end = thread_answers[3 * i + 2];
+			trick_or_treat_end = thread_answers[3 * (i -1) + 2];
 
 		}
 
@@ -273,7 +273,9 @@ void trick_or_treat::report()
 	if(trick_or_treat_haul > 0)
 	{
 
-		cout << "Start at home " << trick_or_treat_start << " and go to home " << trick_or_treat_end << " getting " << trick_or_treat_haul << " pieces of candy.\n";
+		/* Increment the indices forward as the problem indexes to 1*/
+
+		cout << "Start at home " << (trick_or_treat_start + 1) << " and go to home " << (trick_or_treat_end + 1)<< " getting " << trick_or_treat_haul << " pieces of candy.\n";
 
 	}
 	else

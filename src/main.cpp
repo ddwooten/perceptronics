@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 	if(argc < 2)
 	{
 
-		strcpy(file_name, "./input.txt");
+		strcpy(file_name, "./../input.txt");
 
 	}
 	else
