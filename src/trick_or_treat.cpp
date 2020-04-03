@@ -13,7 +13,7 @@ trick_or_treat::trick_or_treat()
 
 	/* Allocate memory for the thread answers and thread block sizes*/
 
-	thread_answers = new (nothrow) int[num_threads];
+	thread_answers = new (nothrow) int[3 * num_threads];
 
 	if(thread_answers == nullptr)
 	{
@@ -111,7 +111,7 @@ void trick_or_treat::find_path()
 
 	/* Enter the parallel part of the algorithm */
 
-#pragma omp parallel private(cur_candy, i, max_candy, prev_end, prev_max, prev_start, start, thread_end, thread_num, thread_start) shared(thread_answers, thread_block_sizes)
+#pragma omp parallel private(cur_candy, i, max_candy, prev_end, prev_max, prev_start, start, thread_end, thread_num, thread_start) shared(candy_limit, houses, num_houses, thread_answers, thread_block_sizes)
 {
 
 	/* Local thread get local thread num */
@@ -147,14 +147,85 @@ void trick_or_treat::find_path()
 
 	}
 
-	i = 0;
+	/* Begin looping through the threads territory */
+
+	i = thread_start;
+
+	prev_start = thread_start;
+
+	prev_end = thread_start;
+
+	prev_max = 0;
+
+	cur_candy = 0;
 
 	while((start < thread_end) & (i < num_houses))
 	{
 
+		/* Gather the candy from the current house */
 
+		cur_candy += houses[i];
+
+		if(cur_candy > candy_limit)
+		{
+
+			/* If over limit, save previous max and info */
+
+			prev_max = cur_candy - houses[i];
+
+			prev_start = start;
+
+			prev_end = i - 1;
+
+			/* Shorten the route one house at a time to get below
+			   limit */
+
+			while(cur_candy > candy_limit)
+			{
+
+				cur_candy -= houses[start];
+
+				start++;
+
+			}
+
+		}
+
+		/* If you have exactly what you want, you are done */
+
+		if(cur_candy == candy_limit)
+		{
+
+			break;
+
+		}
+
+		/* Go to the next house */
+
+		i++;
 
 	}
+
+	/* If last idea was the best idea, replace the current info */
+
+	if(prev_max > cur_candy)
+	{
+
+		cur_candy = prev_max;
+
+		start = prev_start;
+
+		end = prev_end;
+
+	}
+
+	/* Save this thread's answer */
+
+	thread_answers[3 * thread_num] = cur_candy;
+
+	thread_answers[3 * thread_num + 1] = prev_start;
+
+	thread_answers[3 * thread_num + 2] = prev_end;
 
 }
 
