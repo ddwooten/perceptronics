@@ -7,6 +7,10 @@ using namespace std::cout, std::cerr;
 trick_or_treat::trick_or_treat()
 {
 
+	/* Set a few default values */
+
+	trick_or_treat_haul = 0;
+
 	/* Get the number of threads */
 
 	num_threads = omp_get_max_threads();
@@ -228,5 +232,43 @@ void trick_or_treat::find_path()
 	thread_answers[3 * thread_num + 2] = prev_end;
 
 }
+
+	/* Now that each thread has reported its answer, get the best answer */
+
+	cur_candy = 0;
+
+	for(i = 0; i < num_threads; i++)
+	{
+		
+		if(thread_answers[3 * i] > cur_candy)
+		{
+
+			cur_candy = thread_answers[3 * i];
+
+		}
+
+	}
+
+	trick_or_treat_haul = cur_candy;
+
+}
+
+void trick_or_treak_report()
+{
+
+	/* Report out the trick_or_treat result */
+
+	if(trick_or_treat_haul > 0)
+	{
+
+		cout << "Start at home " << trick_or_treat_start << " and go to home " << trick_or_treat_end << " getting " << trick_or_treat_haul << " pieces of candy.\n";
+
+	}
+	else
+	{
+
+		cout << "Don't go here.\n";
+
+	}
 
 }

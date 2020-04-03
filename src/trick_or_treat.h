@@ -7,6 +7,8 @@ class trick_or_treat
 	
 	int prev_start, thread_end, thread_num, thread_start;
 
+	int trick_or_treat_end, trick_or_treat_haul, trick_or_treat_start;
+
 	int* houses, thread_answers, thread_block_sizes;
 
 	ifstream in_file;
