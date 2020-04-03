@@ -1,13 +1,13 @@
 class trick_or_treat
 {
 
-	int block_size, blocks_complete, candy_limit, cur_candy, i, max_candy; 
+	int candy_limit, cur_candy, i, max_candy; 
 
-	int num_houses, num_threads, prev_block_max, prev_end, prev_max_candy; 
+	int num_houses, num_threads, prev_end, prev_max_candy; 
 	
-	int prev_start, thread_num;
+	int prev_start, thread_end, thread_num, thread_start;
 
-	int* houses, thread_answers;
+	int* houses, thread_answers, thread_block_sizes;
 
 	ifstream in_file;
 
