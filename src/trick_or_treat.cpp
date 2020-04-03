@@ -253,7 +253,7 @@ void trick_or_treat::find_path()
 
 }
 
-void trick_or_treak_report()
+void trick_or_treat::report()
 {
 
 	/* Report out the trick_or_treat result */
@@ -270,5 +270,16 @@ void trick_or_treak_report()
 		cout << "Don't go here.\n";
 
 	}
+
+}
+
+trick_or_treat::~trick_or_treat()
+{
+
+	delete houses;
+
+	delete thread_answers;
+
+	delete thread_block_sizes;
 
 }
