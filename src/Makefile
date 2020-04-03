@@ -4,8 +4,8 @@
 
 CC  	 = g++
 CCM      = g++
-#CFLAGS   = -Wall -ansi -ffast-math -O3
-#LDFLAGS  = -lm
+CFLAGS   = -Wall -ansi -ffast-math -O3
+LDFLAGS  = -lm
 
 # Parallel calculation using Open MP:
 
@@ -63,13 +63,14 @@ LDFLAGS += -fopenmp
 
 # Debugging:
 
-CFLAGS   = -Wall -ansi -g -O0
-LDFLAGS  = -lm -g
+CFLAGS :=$(filter -03 -ffast-math, $(CFLAGS))
+CFLAGS  += -g -O0
+LDFLAGS += -g
 
 # Profiler:
 
-#CFLAGS   = -Wall -ansi -p -O3 -ffast-math
-#LDFLAGS  = -lm -p
+#CFLAGS   += -p 
+#LDFLAGS  += -p
 
 ###############################################################################
 
@@ -92,7 +93,7 @@ lbits := $(shell getconf LONG_BIT)
 #lbits = 64
 
 ###############################################################################
-all:    check $(EXE)
+all:    $(EXE)
 	@echo "Trick_or_Treat Compiled OK."
 
 $(EXE): $(OBJS) 
@@ -106,5 +107,5 @@ clean:
 main.o: main.cpp 
 	$(CC) $(CFLAGS) -c main.cpp
 
-trick_or_treat.o: trick_or_treat.cpp header.h trick_or_treat.h
+trick_or_treat.o: trick_or_treat.cpp trick_or_treat.h
 	$(CC) $(CFLAGS) -c trick_or_treat.cpp 

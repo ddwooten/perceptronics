@@ -1,16 +1,18 @@
-#include <stdio>
+#include <stdio.h>
+#include <cstring>
+#include <iostream>
 #include <fstream>
-#include <omp>
-#include "trick_or_treat"
+#include <omp.h>
+#include "trick_or_treat.h"
 
-using namespace std::cout, std::cerr;
+using namespace std;
 
 int main(int argc, char** argv)
 {
 
-	char* file_name[256];
+	char file_name[256];
 
-	ifstream in_file;
+	fstream in_file;
 
 	trick_or_treat* hopes_and_dreams;
 
@@ -19,13 +21,13 @@ int main(int argc, char** argv)
 	if(argc < 2)
 	{
 
-		file_name = "./input.txt";
+		strcpy(file_name, "./input.txt");
 
 	}
 	else
 	{
 
-		file_name = argv[1];
+		strcpy(file_name, argv[1]);
 
 	}
 

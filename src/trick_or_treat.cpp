@@ -1,8 +1,11 @@
-#include <stdio>
+#include <stdio.h>
+#include <cstring>
+#include <iostream>
 #include <fstream>
-#include <omp>
+#include <omp.h>
+#include "trick_or_treat.h"
 
-using namespace std::cout, std::cerr;
+using namespace std;
 
 trick_or_treat::trick_or_treat()
 {
@@ -17,7 +20,7 @@ trick_or_treat::trick_or_treat()
 
 	/* Allocate memory for the thread answers and thread block sizes*/
 
-	thread_answers = new (nothrow) int[3 * num_threads];
+	thread_answers = new(nothrow) int[3 * num_threads];
 
 	if(thread_answers == nullptr)
 	{
@@ -28,7 +31,7 @@ trick_or_treat::trick_or_treat()
 
 	}
 
-	thread_block_sizes = new (nothrow) int[num_threads];
+	thread_block_sizes = new(nothrow) int[num_threads];
 
 	if(thread_block_sizes == nullptr)
 	{
@@ -65,7 +68,7 @@ void trick_or_treat::read_input(char* input_file)
 
 	/* Allocate memory for the houses array */
 
-	houses = new (nothrow) int[num_houses];
+	houses = new(nothrow) int[num_houses];
 
 	if(houses == nullptr)
 	{
@@ -90,6 +93,8 @@ void trick_or_treat::read_input(char* input_file)
 		i++;
 
 	}
+
+	in_file.close();
 
 }
 
@@ -219,7 +224,13 @@ void trick_or_treat::find_path()
 
 		start = prev_start;
 
-		end = prev_end;
+		route_end = prev_end;
+
+	}
+	else
+	{
+
+		route_end = i--;
 
 	}
 
@@ -227,34 +238,35 @@ void trick_or_treat::find_path()
 
 	thread_answers[3 * thread_num] = cur_candy;
 
-	thread_answers[3 * thread_num + 1] = prev_start;
+	thread_answers[3 * thread_num + 1] = start;
 
-	thread_answers[3 * thread_num + 2] = prev_end;
+	thread_answers[3 * thread_num + 2] = route_end;
 
 }
-
-	/* Now that each thread has reported its answer, get the best answer */
-
-	cur_candy = 0;
-
-	for(i = 0; i < num_threads; i++)
-	{
-		
-		if(thread_answers[3 * i] > cur_candy)
-		{
-
-			cur_candy = thread_answers[3 * i];
-
-		}
-
-	}
-
-	trick_or_treat_haul = cur_candy;
 
 }
 
 void trick_or_treat::report()
 {
+
+	/* Loop backwards through the threads, this ensures the first workable
+	   answer is grabbed */
+
+	for(i = (num_threads - 1); i > 0; i--)
+	{
+
+		if(thread_answers[3 * i] > trick_or_treat_haul)
+		{
+
+			trick_or_treat_haul = thread_answers[3 * i];
+
+			trick_or_treat_start = thread_answers[ 3 * i + 1];
+
+			trick_or_treat_end = thread_answers[3 * i + 2];
+
+		}
+
+	}
 
 	/* Report out the trick_or_treat result */
 
