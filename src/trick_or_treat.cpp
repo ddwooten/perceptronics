@@ -1,15 +1,11 @@
-class map
+#include <stdio>
+#include <fstream>
+#include <omp>
+
+using namespace std;
+
+trick_or_treat::trick_or_treat()
 {
-
-	int block_size, blocks_complete, candy_limit, cur_candy, i, max_candy; 
-
-	int num_houses, num_threads, prev_block_max, prev_end, prev_max_candy; 
-	
-	int prev_start, thread_num;
-
-	int* houses, thread_answers;
-
-	ifstream in_file;
 
 	/* Get the number of threads */
 
@@ -28,14 +24,19 @@ class map
 
 	}
 
+}
+
+void trick_or_treat::read_input(char* input_file)
+{
+
 	/* Open the input file */
 
-	in_file.open(argv[1], ios::in);
+	in_file.open(input_file, ios::in);
 
 	if(!in_file)
 	{
 
-		cerr << "Error: Unable to open file " << argv[1] << "\n";
+		cerr << "Error: Unable to open file " << input_file << "\n";
 
 		exit(EXIT_FAILURE);
 
@@ -74,6 +75,10 @@ class map
 		i++;
 
 	}
+
+}
+
+void trick_or_treat::find_path()
 
 	/* Get the block size per thread */
 

@@ -1,10 +1,4 @@
-#include <stdio>
-#include <fstream>
-#include <omp>
-
-using namespace std;
-
-int main(int argc, char** argv)
+class trick_or_treat
 {
 
 	int block_size, blocks_complete, candy_limit, cur_candy, i, max_candy; 
