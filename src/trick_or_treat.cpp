@@ -31,17 +31,6 @@ trick_or_treat::trick_or_treat()
 
 	}
 
-	thread_block_sizes = new(nothrow) int[num_threads];
-
-	if(thread_block_sizes == nullptr)
-	{
-
-		cerr << "Error: Unable to allocate houses memory.\n";
-
-		exit(EXIT_FAILURE);
-
-	}
-
 }
 
 void trick_or_treat::read_input(char* input_file)
@@ -105,22 +94,9 @@ void trick_or_treat::find_path()
 
 	block_size = num_houses / num_threads;
 
-	/* Give all but the last thread their block size */
-
-	for(i = 0; i < (num_threads - 1) ; i++)
-	{
-
-		thread_block_sizes[i] = block_size;
-
-	}
-
-	/* The last thread handles the remainder */
-
-	thread_block_sizes[num_threads - 1] = num_houses % num_threads + block_size;
-
 	/* Enter the parallel part of the algorithm */
 
-#pragma omp parallel private(cur_candy, i, max_candy, prev_end, prev_max, prev_start, start, thread_end, thread_num, thread_start) shared(candy_limit, houses, num_houses, thread_answers, thread_block_sizes)
+#pragma omp parallel private(cur_candy, i, max_candy, prev_end, prev_max, prev_start, start, thread_end, thread_num, thread_start) shared(candy_limit, block_size, houses, num_houses, thread_answers)
 {
 
 	/* Local thread get local thread num */
@@ -152,6 +128,7 @@ void trick_or_treat::find_path()
 	}
 	else
 	{
+
 		thread_end = num_houses;
 
 	}
@@ -293,7 +270,5 @@ trick_or_treat::~trick_or_treat()
 	delete houses;
 
 	delete thread_answers;
-
-	delete thread_block_sizes;
 
 }

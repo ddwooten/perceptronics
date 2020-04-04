@@ -11,7 +11,7 @@ class trick_or_treat
 
 		int trick_or_treat_end,trick_or_treat_haul,trick_or_treat_start;
 
-		int *houses, *thread_answers, *thread_block_sizes;
+		int *houses, *thread_answers; 
 
 		std::fstream in_file;
 
