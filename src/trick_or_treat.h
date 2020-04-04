@@ -3,13 +3,17 @@ class trick_or_treat
 
 	public:
 
-		int block_size, candy_limit, cur_candy, i, max_candy; 
+		int block_size = 0, candy_limit = 0, cur_candy = 0, i = 0;  
 
-		int num_houses, num_threads, prev_end, prev_max, prev_start; 
+		int max_candy = 0, num_houses = 0, num_threads = 0, prev_end =0;
 		
-		int route_end, start, thread_end, thread_num, thread_start;
+		int prev_max = 0, prev_start = 0, route_end = 0 , start = 0; 
+		
+		int thread_end = 0, thread_num = 0, thread_start = 0;
 
-		int trick_or_treat_end,trick_or_treat_haul,trick_or_treat_start;
+		int trick_or_treat_end = 0,trick_or_treat_haul = 0;
+		
+		int trick_or_treat_start = 0;
 
 		int *houses, *thread_answers; 
 

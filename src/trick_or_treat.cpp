@@ -10,10 +10,6 @@ using namespace std;
 trick_or_treat::trick_or_treat()
 {
 
-	/* Set a few default values */
-
-	trick_or_treat_haul = 0;
-
 	/* Get the number of threads */
 
 	num_threads = omp_get_max_threads();
@@ -234,14 +230,14 @@ void trick_or_treat::report()
 	for(i = num_threads; i > 0; i--)
 	{
 
-		if(thread_answers[3 * (i - 1)] > trick_or_treat_haul)
+		if(thread_answers[3 * (i - 1)] >= trick_or_treat_haul)
 		{
 
-			trick_or_treat_haul = thread_answers[3 * (i -1)];
+			trick_or_treat_haul = thread_answers[3 * (i - 1)];
 
-			trick_or_treat_start = thread_answers[ 3 * (i -1) + 1];
+			trick_or_treat_start = thread_answers[ 3 * (i - 1) + 1];
 
-			trick_or_treat_end = thread_answers[3 * (i -1) + 2];
+			trick_or_treat_end = thread_answers[3 * (i - 1) + 2];
 
 		}
 
