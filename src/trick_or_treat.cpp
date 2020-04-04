@@ -137,6 +137,8 @@ void trick_or_treat::find_path()
 
 	i = thread_start;
 
+	start = thread_start;
+
 	prev_start = thread_start;
 
 	prev_end = thread_start;
