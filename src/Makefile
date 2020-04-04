@@ -4,8 +4,8 @@
 
 CC  	 = g++
 CCM      = g++
-CFLAGS   = -Wall -ansi -ffast-math -O3
-LDFLAGS  = -lm
+CFLAGS   = -Wall -ansi -ffast-math -O3 -std=c++17
+LDFLAGS  = -lm -std=c++17
 
 # Parallel calculation using Open MP:
 
@@ -63,7 +63,8 @@ LDFLAGS += -fopenmp
 
 # Debugging:
 
-CFLAGS :=$(filter -03 -ffast-math, $(CFLAGS))
+CFLAGS :=$(filter-out -03,$(CFLAGS))
+CFLAGS :=$(filter-out -ffast-math,$(CFLAGS))
 CFLAGS  += -g -O0
 LDFLAGS += -g
 
