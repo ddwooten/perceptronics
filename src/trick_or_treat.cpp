@@ -92,7 +92,7 @@ void trick_or_treat::find_path()
 
 	/* Enter the parallel part of the algorithm */
 
-#pragma omp parallel private(cur_candy, i, max_candy, prev_end, prev_max, prev_start, start, thread_end, thread_num, thread_start) shared(candy_limit, block_size, houses, num_houses, thread_answers)
+#pragma omp parallel private(cur_candy, i, max_candy, prev_end, prev_max, prev_start, thread_end, thread_num, thread_start) shared(candy_limit, block_size, houses, num_houses, thread_answers)
 {
 
 	/* Local thread get local thread num */
@@ -133,8 +133,6 @@ void trick_or_treat::find_path()
 
 	i = thread_start;
 
-	start = thread_start;
-
 	prev_start = thread_start;
 
 	prev_end = thread_start;
@@ -143,7 +141,7 @@ void trick_or_treat::find_path()
 
 	cur_candy = 0;
 
-	while((start < thread_end) & (i < num_houses))
+	while((thread_start < thread_end) & (i < num_houses))
 	{
 
 		/* Gather the candy from the current house */
@@ -157,7 +155,7 @@ void trick_or_treat::find_path()
 
 			prev_max = cur_candy - houses[i];
 
-			prev_start = start;
+			prev_start = thread_start;
 
 			prev_end = i - 1;
 
@@ -167,9 +165,9 @@ void trick_or_treat::find_path()
 			while(cur_candy > candy_limit)
 			{
 
-				cur_candy -= houses[start];
+				cur_candy -= houses[thread_start];
 
-				start++;
+				thread_start++;
 
 			}
 
@@ -197,7 +195,7 @@ void trick_or_treat::find_path()
 
 		cur_candy = prev_max;
 
-		start = prev_start;
+		thread_start = prev_start;
 
 		route_end = prev_end;
 
@@ -213,7 +211,7 @@ void trick_or_treat::find_path()
 
 	thread_answers[3 * thread_num] = cur_candy;
 
-	thread_answers[3 * thread_num + 1] = start;
+	thread_answers[3 * thread_num + 1] = thread_start;
 
 	thread_answers[3 * thread_num + 2] = route_end;
 
