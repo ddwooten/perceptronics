@@ -5,15 +5,16 @@
 #include <omp.h>
 #include "/home/dwooten/Documents/googletest/googletest/include/gtest/gtest.h"
 #include "./../src/trick_or_treat.h"
+#include "trickortreattest.h"
 
 TEST_F(TrickOrTreatTest, ReadsInputNumHouses)
 {
 
-	const std::string input_file_path = "input_testing_1.txt";
+	char input_file_path[] = "input_testing_1.txt";
 
-	all_saints_eve.read_input(&input_file_path);
+	all_saints_eve -> read_input(input_file_path);
 
-	EXPECT_EQ(all_saints_eve.num_houses, 14);
+	EXPECT_EQ(all_saints_eve -> num_houses, 14);
 
 }
 

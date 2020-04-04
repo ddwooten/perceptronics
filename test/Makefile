@@ -6,7 +6,7 @@ CC  	 = g++
 CCM      = g++
 CFLAGS   = -Wall -ansi -ffast-math -O3 -std=c++17
 LDFLAGS  = -lm -std=c++17
-GTEST = -I/home/dwooten/Documents/googletest/googletest/include
+GTEST = -I/home/dwooten/Documents/googletest/googletest/include -L/home/dwooten/Documents/googletest/googletest/build/lib -lgtest -lgtest_main
 
 # Parallel calculation using Open MP:
 
@@ -73,7 +73,7 @@ LDFLAGS += -g
 ###############################################################################
 
 OBJS	=	trickortreattest.o \
-		trickortreat.o
+		trick_or_treat.o
 
 ###############################################################################
 
@@ -102,8 +102,8 @@ clean:
 
 ###############################################################################
 
-trickortreattest.o: trickortreattest.cpp ../src/trick_or_treat.h trickortreattest.h
+trickortreattest.o: trickortreattest.cpp trickortreattest.h
 	$(CC) $(CFLAGS) $(GTEST) -c trickortreattest.cpp 
 
-trickortreat.o: ../src/trickortreat.cpp ../src/trick_or_treat.h
-	$(CC) $(CFLAGS) -c ../src/trick_or_treat.cpp 
+trick_or_treat.o: ../src/trick_or_treat.cpp ../src/trick_or_treat.h
+	$(CC) $(CFLAGS) $(GTEST) -c ../src/trick_or_treat.cpp 
