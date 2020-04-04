@@ -72,12 +72,12 @@ LDFLAGS += -g
 
 ###############################################################################
 
-OBJS	=	testtrickortreat.o \
+OBJS	=	trickortreattest.o \
 		trickortreat.o
 
 ###############################################################################
 
-EXE     = TEST_Trick_or_Treat
+EXE     = Trick_or_Treat_TEST
 
 DATE 	= -DMC_COMPILE_DATE="\"`date `\""
 
@@ -92,7 +92,7 @@ lbits := $(shell getconf LONG_BIT)
 
 ###############################################################################
 all:    $(EXE)
-	@echo "TEST_Trick_or_Treat Compiled OK."
+	@echo "Trick_or_Treat_TEST Compiled OK."
 
 $(EXE): $(OBJS) 
 	$(CCM) $(OBJS) $(LDFLAGS) $(GTEST) -o $(EXE)
@@ -102,8 +102,8 @@ clean:
 
 ###############################################################################
 
-testtrickortreat.o: testtrickortreat.cpp ../src/trick_or_treat.h testtrickortreat.h
-	$(CC) $(CFLAGS) $(GTEST) -c testtrickortreat.cpp 
+trickortreattest.o: trickortreattest.cpp ../src/trick_or_treat.h trickortreattest.h
+	$(CC) $(CFLAGS) $(GTEST) -c trickortreattest.cpp 
 
 trickortreat.o: ../src/trickortreat.cpp ../src/trick_or_treat.h
 	$(CC) $(CFLAGS) -c ../src/trick_or_treat.cpp 

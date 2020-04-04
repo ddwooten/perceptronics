@@ -6,27 +6,6 @@
 #include "/home/dwooten/Documents/googletest/googletest/include/gtest/gtest.h"
 #include "./../src/trick_or_treat.h"
 
-class TrickOrTreatTest:public::testing::Test
-{
-
-	protected:
-
-		TrickOrTreatTest()
-		{
-
-			all_saints_eve = new trick_or_treat{};
-
-		}
-
-		~TrickOrTreatTest()
-		{
-
-			delete all_saints_eve;
-
-		}
-
-};
-
 TEST_F(TrickOrTreatTest, ReadsInputNumHouses)
 {
 
