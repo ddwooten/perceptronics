@@ -18,14 +18,17 @@ using namespace std;
   * @param argv Array of char* to command line inputs in string format
   */
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 
-	char file_name[256]; /** Memory for the file name. */
+	/** Memory for the file name. */
+	char file_name[256];
 
-	fstream in_file; /** Streaming file object used here for input. */
+	/** Streaming file object used here for input. */
+	fstream in_file;
 
-	trick_or_treat* hopes_and_dreams; /** @see trick_or_treat. */
+	/** @see trick_or_treat. */
+	trick_or_treat* hopes_and_dreams;
 
 	/* If no arguments give, use default run settings */
 

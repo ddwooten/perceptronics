@@ -7,50 +7,69 @@
   * @see report()
   */
 
+using namespace std;
+
 class trick_or_treat
 {
 
-	private:
-
-		int block_size = 0;/** Size of array chunk per thread.*/
-
-		int candy_limit = 0; /** Maximum candy limit from input. */
-	        
-		int cur_candy = 0; /** Forward sliding window sum value. */
-	     
-		int i = 0; /** Standard iterator. */  
-
-		int num_houses=0;/** Number of houses in input from input. */
-	        
-		int num_threads = 0; /** Number of total program threads. */
-	      
-		int prev_end =0; /** Lagged sliding window end index. */
-		
-		int prev_max = 0; /** Lagged sliding window sum value. */
-		
-		int prev_start = 0; /** Lagged sliding window start index. */
-	        
-		int route_end = 0; /** Forward sliding window end value. */
-		
-		int thread_end = 0; /** Upper limit of given thread's range. */
-	         
-		int thread_num = 0; /** Thread id number. */
-		
-		int thread_start = 0; /** Lower limit of given thread range. */
-
-		int trick_or_treat_end = 0; /** Optimal end house. */
-
-		int trick_or_treat_haul = 0; /** Optimal candy reward. */
-		
-		int trick_or_treat_start = 0; /** Optimal beginning house. */
-
-		int *houses; /** Map of houses and candy values. */
-		    
-		int *thread_answers; /** Answer storage for each thread. */
-
-		std::fstream in_file; /** Input file stream. */
-
 	public:
+
+		/** Size of array chunk per thread.*/
+		int block_size = 0;
+
+		/** Maximum candy limit from input. */
+		int candy_limit = 0;
+	        
+		/** Forward sliding window sum value. */
+		int cur_candy = 0; 
+	     
+		/** Standard iterator. */  
+		int i = 0;   
+
+		/** Number of houses in input from input. */
+		int num_houses = 0;
+	        
+		/** Number of total program threads. */
+		int num_threads = 0;
+	      
+		/** Lagged sliding window end index. */
+		int prev_end = 0;
+		
+		/** Lagged sliding window sum value. */
+		int prev_max = 0; 
+		
+		/** Lagged sliding window start index. */
+		int prev_start = 0;
+	        
+		/** Forward sliding window end value. */
+		int route_end = 0; 
+		
+		/** Upper limit of given thread's range. */
+		int thread_end = 0; 
+	         
+		/** Thread id number. */
+		int thread_num = 0;
+		
+		/** Lower limit of given thread range. */
+		int thread_start = 0;
+
+		/** Optimal end house. */
+		int trick_or_treat_end = 0;
+
+		/** Optimal candy reward. */
+		int trick_or_treat_haul = 0;
+		
+		/** Optimal beginning house. */
+		int trick_or_treat_start = 0;
+
+		/** Map of houses and candy values. */
+		int *houses;
+		    
+		/** Answer storage for each thread. */
+		int *thread_answers;
+
+		/** Input file stream. */
+		fstream in_file;
 
 		/** 
 		  * Initializer for the trick_or_treat class.
