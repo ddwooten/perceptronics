@@ -92,7 +92,7 @@ void trick_or_treat::find_path()
 
 	/* Enter the parallel part of the algorithm */
 
-#pragma omp parallel private(cur_candy, i, max_candy, prev_end, prev_max, prev_start, thread_end, thread_num, thread_start) shared(candy_limit, block_size, houses, num_houses, thread_answers)
+#pragma omp parallel private(cur_candy, i, prev_end, prev_max, prev_start, thread_end, thread_num, thread_start) shared(candy_limit, block_size, houses, num_houses, thread_answers)
 {
 
 	/* Local thread get local thread num */
