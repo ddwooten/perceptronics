@@ -1,4 +1,5 @@
-/** Workhorse class of the programing challenge.
+/** 
+  * Workhorse class of the programing challenge.
   * Handles input file reading and probelm setup, problem solution, and answer
   * reporting. In respective order...
   * @see read_input(char* input_file)
@@ -11,54 +12,56 @@ class trick_or_treat
 
 	private:
 
-		int block_size = 0;/** Standard size of array chunk per thread*/
+		int block_size = 0;/**<Standard size of array chunk per thread*/
 
-	       	int candy_limit = 0; /** Maximum candy limit from input */
+	       	int candy_limit = 0; /**< Maximum candy limit from input */
 	        
-		int cur_candy = 0; /** Forward sliding window sum value */
+		int cur_candy = 0; /**< Forward sliding window sum value */
 	       
-	       	int i = 0; /** Standard iterator */  
+	       	int i = 0; /**< Standard iterator */  
 
-		int num_houses=0;/**Number of total houses in input from input*/
+		int num_houses=0;/**< Number of houses in input from input */
 	        
-		int num_threads = 0; /**Number of available program threads*/
+		int num_threads = 0; /**< Number of total program threads */
 	      
-		int prev_end =0; /** Lagged sliding window end index */
+		int prev_end =0; /**< Lagged sliding window end index */
 		
-		int prev_max = 0; /** Lagged sliding window sum value */
+		int prev_max = 0; /**< Lagged sliding window sum value */
 		
-		int prev_start = 0; /** Lagged sliding window start index */
+		int prev_start = 0; /**< Lagged sliding window start index */
 	        
-		int route_end = 0; /** Forward sliding window end value */
+		int route_end = 0; /**< Forward sliding window end value */
 		
-		int thread_end = 0; /** Upper limit of given thread's range */
+		int thread_end = 0; /**< Upper limit of given thread's range */
 	         
-		int thread_num = 0; /** Thread id number */
+		int thread_num = 0; /**< Thread id number */
 		
-		int thread_start = 0; /** Lower limit of given thread's range */
+		int thread_start = 0; /**< Lower limit of given thread range */
 
-		int trick_or_treat_end = 0; /** Optimal end house*/
+		int trick_or_treat_end = 0; /**< Optimal end house*/
 
-		int trick_or_treat_haul = 0; /** Optimal candy reward */
+		int trick_or_treat_haul = 0; /**< Optimal candy reward */
 		
-		int trick_or_treat_start = 0; /** Optimal begining house*/
+		int trick_or_treat_start = 0; /**< Optimal begining house*/
 
-		int *houses; /** Map of houses and candy values */
+		int *houses; /**< Map of houses and candy values */
 		    
-		int *thread_answers; /**Individual answer storage for threads*/
+		int *thread_answers; /**< Answer storage for each thread */
 
-		std::fstream in_file; /** Input file stream */
+		std::fstream in_file; /**< Input file stream */
 
 	public:
 
-		/** Initializer for the trick_or_treat class.
+		/** 
+		  * Initializer for the trick_or_treat class.
 		  * @see trick_or_treat
 		  * Get system thread information and allocate storage for
 		  * thread answers */
 
 		trick_or_treat();
 
-		/** Reads in input from file input_file.
+		/** 
+		  * Reads in input from file input_file.
 		  * @param input_file string representing path to input file
 		  * input_file is passed by main() with a default argument 
 		  * './../input.txt' which can be overridden by passing the
@@ -83,12 +86,14 @@ class trick_or_treat
 
 		void find_path();
 
-		/** Prints to standard out the results of find_path.
+		/** 
+		  *Prints to standard out the results of find_path.
 		  * @see find_path() */
 
 		void report();
 
-		/** Destructor for the trick_or_treat class.
+		/** 
+		  * Destructor for the trick_or_treat class.
 		  * @see trick_or_treat
 		  * Frees memory realted to *houses and *thread_answers
 		  */

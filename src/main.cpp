@@ -7,7 +7,8 @@
 
 using namespace std;
 
-/** Executing function of the programing challenge.
+/** 
+  * Executing function of the programing challenge.
   * main() may optionally take 1 command line argument. This argument is the
   * relative or absolute path to an input file for the programing challenge.
   * main() uses a default value for this path of './../input.txt' which will
@@ -20,11 +21,11 @@ using namespace std;
 int main(int argc, char** argv)
 {
 
-	char file_name[256]; /** Memory for the file name */
+	char file_name[256]; /**< Memory for the file name */
 
-	fstream in_file; /** Streaming file object used here for input */
+	fstream in_file; /**< Streaming file object used here for input */
 
-	trick_or_treat* hopes_and_dreams; /** @see trick_or_treat */
+	trick_or_treat* hopes_and_dreams; /**< @see trick_or_treat */
 
 	/* If no arguments give, use default run settings */
 
