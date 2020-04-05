@@ -5,126 +5,33 @@
 #include <omp.h>
 #include "/home/dwooten/Documents/googletest/googletest/include/gtest/gtest.h"
 #include "./../src/trick_or_treat.h"
-#include "trickortreattest.h"
 
 /**
   * Test that trick_or_treat:read_input get the correct number of houses.
   */
 
-TEST_F(TrickOrTreatTest, ReadsInputNumHouses)
+TEST(GodHelpUsAll, ReadsInputNumHouses)
 {
 	/** Input file path. */
+	char input_file[256];
 
-	char input_file_path[] = "input_testing_1.txt";
+	int test_value = 0;
 
-	all_saints_eve -> read_input(input_file_path);
+	strcpy(input_file, "input_testing_1.txt");
 
-	EXPECT_EQ(all_saints_eve -> num_houses, 14);
+	trick_or_treat *all_saints_eve;
 
-}
+	all_saints_eve = new trick_or_treat{};
 
-/**
-  * Test that trick_or_treat:read_input sets the houses array properly.
-  */
-
-TEST_F(TrickOrTreatTest, ReadsInputHouses)
-{
-
-	/** Input file path. */
-
-	char input_file_path[] = "input_testing_1.txt";
-
-	all_saints_eve -> read_input(input_file_path);
-
-	EXPECT_EQ(all_saints_eve -> houses[5], 15);
-
-}
-
-/**
-  * Test that read_input and find_path work together. 
-  */
-
-TEST_F(TrickOrTreatTest, PopulatedThreadAnswers)
-{
-
-	/** Input file path. */
-
-	char input_file_path[] = "input_testing_1.txt";
-
-	/** Number of omp threads */
-
-	int num_threads = 0;
-
-	num_threads = omp_get_max_threads();
-
-	all_saints_eve -> read_input(input_file_path);
-
-	all_saints_eve -> find_path();
-
-	EXPECT_EQ(all_saints_eve -> thread_answers[3 * (num_threads - 1)], 10);
-
-}
-
-/**
-  * Test that trick_or_treat gets the correct answer for the candy amount.
-  */
-
-TEST_F(TrickOrTreatTest, CorrectCandyAmt)
-{
-
-	/** Input file path. */
-
-	char input_file_path[] = "input_testing_1.txt";
-
-	all_saints_eve -> read_input(input_file_path);
+	all_saints_eve -> read_input(input_file);
 
 	all_saints_eve -> find_path();
 
 	all_saints_eve -> report();
 
-	EXPECT_EQ(all_saints_eve -> trick_or_treat_haul, 10);
+	test_value = all_saints_eve -> num_threads;
 
-}
-
-/**
-  * Test that trick_or_treat gets the correct starting house index.
-  */
-
-TEST_F(TrickOrTreatTest, CorrectStartHouse)
-{
-
-	/** Input file path. */
-
-	char input_file_path[] = "input_testing_1.txt";
-
-	all_saints_eve -> read_input(input_file_path);
-
-	all_saints_eve -> find_path();
-
-	all_saints_eve -> report();
-
-	EXPECT_EQ(all_saints_eve -> trick_or_treat_start, 7 );
-
-}
-
-/**
-  * Test that trick_or_treat gets the correct ending house index.
-  */
-
-TEST_F(TrickOrTreatTest, CorrectEndHouse)
-{
-
-	/** Input file path. */
-
-	char input_file_path[] = "input_testing_1.txt";
-
-	all_saints_eve -> read_input(input_file_path);
-
-	all_saints_eve -> find_path();
-
-	all_saints_eve -> report();
-
-	EXPECT_EQ(all_saints_eve -> trick_or_treat_end, 8);
+	ASSERT_GT(test_value, 0);
 
 }
 
@@ -133,7 +40,11 @@ int main(int argc, char **argv)
 
 	::testing::InitGoogleTest(&argc, argv);
 
-	return RUN_ALL_TESTS();
+	int out = 0;
+
+	out = RUN_ALL_TESTS();
+
+	return(out);
 
 }
 

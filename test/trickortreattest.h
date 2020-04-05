@@ -1,3 +1,7 @@
+#include <omp.h>
+#include "../src/trick_or_treat.h"
+#include "/home/dwooten/Documents/googletest/googletest/include/gtest/gtest.h"
+
 /**
   * Set up class for testing of the trick_or_treat class.
   */
@@ -6,6 +10,8 @@ class TrickOrTreatTest:public::testing::Test
 {
 
 	protected:
+		
+		/** Class member to be tested. */
 
 		trick_or_treat *all_saints_eve;
 
