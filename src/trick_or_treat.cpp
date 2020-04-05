@@ -263,8 +263,8 @@ void trick_or_treat::report()
 trick_or_treat::~trick_or_treat()
 {
 
-	delete houses;
+	delete[] houses;
 
-	delete thread_answers;
+	delete[] thread_answers;
 
 }
