@@ -50,35 +50,78 @@ void nilakantha_series::calculate(int user_input)
 
 	/* If we have more terms, sum their contributions */
 
-	for(i = 1; i < terms; i++)
+	#pragma omp parallel private(thread_num, thread_term)
 	{
 
-		/* Reset the denominator value and get the new one*/
+		/* Give the executing thread its thread number */
 
-		denominator = denom_start * (denom_start + 1) * (denom_start + 2);
+		thread_num = omp_get_thread_num();
 
-		/* Increment the denomintor start forward */
+		/* Set the iterator */
 
-		denom_start += 2;
+		i = 1;
 
-		/* The sign infront of the terms in this series alternates */
+		/* Begin looping through computation blocks towards the goal */
 
-		if(i % 2 == 0)
+		while(i < terms)
 		{
 
-			sum -= (float)numerator / (float)denominator;
+			/* If this threads computation will be needed, do it */
+
+			if((thread_num + i) < terms)
+			{
+
+				thread_term = (double)numerator /(double)(((i + thread_num) * 2) * ((i + thread_num) * 2 + 1) * ((i + thread_num) * 2 + 2));
+
+			}
+
+			/* Pause so that all threads have finished */
+
+			#pragma omp barrier
+
+			/* If the thread term is a negative term in the series, make it so */
+
+			if((i + thread_num) % 2 == 0)
+			{
+
+				thread_term = thread_term * -1.0;
+
+			}
+
+			/* In order, add and print to screen the thread values to the sum */
+
+			for(j = 0; j < num_threads; j++)
+			{
+
+				if( i >= terms)
+				{
+
+					break;
+
+				}
+
+				if(thread_num == j)
+				{
+
+					sum += thread_term;
+
+					/* Print to screen the current result */
+
+					fprintf(stdout, "%.6f\n", sum);
+
+					/* Increment i as it is needed */
+
+					i += 1;
+
+				}
+
+				/* Make sure all threads wait to continue together */
+
+				#pragma omp barrier
+
+			}
 
 		}
-		else
-		{
-
-			sum += (float)numerator / (float)denominator;
-
-		}
-		
-		/* Print to screen the current result */
-
-		fprintf(stdout, "%.6f\n", (double)sum);
 
 	}
 

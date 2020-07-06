@@ -50,6 +50,12 @@ class nilakantha_series
 		/** Number of threads. */
 		int num_threads = 0;
 
+		/** Individual thread number. */
+		int thread_num = 0;
+
+		/** Independent thread variable */
+		int thread_term = 0;
+
 		/** 
 		  * Initializer for the nilakantha_series class.
 		  * @see nilakantha_series
