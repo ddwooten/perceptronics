@@ -21,10 +21,10 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	
-	/** Storage for user input before integer conversion */
+	/** Storage for user input before integer conversion.*/
 	char input[128];
 
-	/** Integer user input for desired number of terms in computation */
+	/** Integer user input for desired number of terms in computation.*/
 	int terms = 0;
 
 	/** @see nilakantha_series. */
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	if(argc < 2)
 	{
 
-		fprintf(stderr, "No input given with program invocation. Usage of the Nilakantha calculator requires the inclusion of one command line argument being a positive integer. E.g. any of 1, 2, 3...\n");
+		fprintf(stdout, "No input given with program invocation. Usage of the Nilakantha calculator requires the inclusion of one command line argument being a positive integer. E.g. any of 1, 2, 3...\n");
 
 		return(0);
 
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 		if(terms == 0)
 		{
 
-			fprintf(stderr, "Attempted conversion of user input, %s, to integer. Conversion failed. Please invoke this program with command line input which can be converted from type of string to type of integer.\n", input);
+			fprintf(stdout, "Attempted conversion of user input, %s, to integer. Conversion failed. Please invoke this program with command line input which can be converted from type of string to type of integer.\n", input);
 
 			return(0);
 
