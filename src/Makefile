@@ -63,7 +63,7 @@ LDFLAGS += -fopenmp
 
 # Debugging:
 
-CFLAGS :=$(filter-out -03,$(CFLAGS))
+CFLAGS :=$(filter-out -O3,$(CFLAGS))
 CFLAGS :=$(filter-out -ffast-math,$(CFLAGS))
 CFLAGS  += -g -O0
 LDFLAGS += -g
@@ -76,11 +76,11 @@ LDFLAGS += -g
 ###############################################################################
 
 OBJS	=	main.o \
-		trick_or_treat.o 
+		nilakantha_series.o 
 
 ###############################################################################
 
-EXE     = Trick_or_Treat
+EXE     = Nilikantha_Series
 
 DATE 	= -DMC_COMPILE_DATE="\"`date `\""
 
@@ -95,7 +95,7 @@ lbits := $(shell getconf LONG_BIT)
 
 ###############################################################################
 all:    $(EXE)
-	@echo "Trick_or_Treat Compiled OK."
+	@echo "Nilikantha_Series Compiled OK."
 
 $(EXE): $(OBJS) 
 	$(CCM) $(OBJS) $(LDFLAGS) -o $(EXE)
@@ -108,5 +108,5 @@ clean:
 main.o: main.cpp 
 	$(CC) $(CFLAGS) -c main.cpp
 
-trick_or_treat.o: trick_or_treat.cpp trick_or_treat.h
-	$(CC) $(CFLAGS) -c trick_or_treat.cpp 
+nilakantha_series.o: nilakantha_series.cpp nilakantha_series.h
+	$(CC) $(CFLAGS) -c nilakantha_series.cpp 
