@@ -3,11 +3,11 @@
 #include <iostream>
 #include <fstream>
 #include <omp.h>
-#include "trick_or_treat.h"
+#include "nilakantha_series.h"
 
 using namespace std;
 
-trick_or_treat::trick_or_treat()
+nilakantha_series::nilakantha_series()
 {
 
 	/* Get the number of threads */
@@ -29,62 +29,22 @@ trick_or_treat::trick_or_treat()
 
 }
 
-void trick_or_treat::read_input(char* input_file)
+void nilakantha_series::calulate(int user_input)
 {
 
-	/* Open the input file */
+	terms = user_input;
 
-	in_file.open(input_file, ios::in);
+	/* Ensure we have good input */
 
-	if(!in_file)
+	if(terms < 1)
 	{
 
-		cerr << "Error: Unable to open file " << input_file << "\n";
-
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "User input is invalid with value of %d.\n", 
+		        terms);
 
 	}
 
-	/* Extract the number of houses and the max amount of candy */
 
-	in_file >> num_houses;
-
-	in_file >> candy_limit;
-
-	/* Allocate memory for the houses array */
-
-	houses = new(nothrow) int[num_houses];
-
-	if(houses == nullptr)
-	{
-
-		cerr << "Error: Unable to allocate houses memory.\n";
-
-		exit(EXIT_FAILURE);
-
-	}
-
-	/* Move through in_file collecting the information for the house array*/
-
-	i = 0;
-
-	while(true)
-	{
-
-		if(in_file.eof()) break;
-
-		in_file >> houses[i];
-
-		i++;
-
-	}
-
-	in_file.close();
-
-}
-
-void trick_or_treat::find_path()
-{
 
 	/* Get the block size per thread */
 
@@ -219,7 +179,7 @@ void trick_or_treat::find_path()
 
 }
 
-void trick_or_treat::report()
+void nilakantha_series::report()
 {
 
 	/* Loop backwards through the threads, this ensures the first workable
@@ -228,27 +188,27 @@ void trick_or_treat::report()
 	for(i = num_threads; i > 0; i--)
 	{
 
-		if(thread_answers[3 * (i - 1)] >= trick_or_treat_haul)
+		if(thread_answers[3 * (i - 1)] >= nilakantha_series_haul)
 		{
 
-			trick_or_treat_haul = thread_answers[3 * (i - 1)];
+			nilakantha_series_haul = thread_answers[3 * (i - 1)];
 
-			trick_or_treat_start = thread_answers[ 3 * (i - 1) + 1];
+			nilakantha_series_start = thread_answers[ 3 * (i - 1) + 1];
 
-			trick_or_treat_end = thread_answers[3 * (i - 1) + 2];
+			nilakantha_series_end = thread_answers[3 * (i - 1) + 2];
 
 		}
 
 	}
 
-	/* Report out the trick_or_treat result */
+	/* Report out the nilakantha_series result */
 
-	if(trick_or_treat_haul > 0)
+	if(nilakantha_series_haul > 0)
 	{
 
 		/* Increment the indices forward as the problem indexes to 1*/
 
-		cout << "Start at home " << (trick_or_treat_start + 1) << " and go to home " << (trick_or_treat_end + 1)<< " getting " << trick_or_treat_haul << " pieces of candy.\n";
+		cout << "Start at home " << (nilakantha_series_start + 1) << " and go to home " << (nilakantha_series_end + 1)<< " getting " << nilakantha_series_haul << " pieces of candy.\n";
 
 	}
 	else
@@ -260,7 +220,7 @@ void trick_or_treat::report()
 
 }
 
-trick_or_treat::~trick_or_treat()
+nilakantha_series::~nilakantha_series()
 {
 
 	delete[] houses;

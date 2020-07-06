@@ -6,13 +6,28 @@
   * @see find_path()
   * @see report()
   */
-
+#include <fstream>
 using namespace std;
 
 class trick_or_treat
 {
 
 	public:
+
+		/** First term of the infinite series.*/
+		int term_0 = 3;
+
+		/** Static numerator for the Nilakantha series.*/
+		int numerator = 4;
+
+		/** First term in the denominator series.*/
+		int denom_start = 2;
+
+		/** Lenth of the simple denomintor series.*/
+		int denom_depth = 2;
+
+		/** Holder for user input.*/
+		int terms = 0;
 
 		/** Size of array chunk per thread.*/
 		int block_size = 0;
@@ -63,10 +78,10 @@ class trick_or_treat
 		int trick_or_treat_start = 0;
 
 		/** Map of houses and candy values. */
-		int *houses;
+		int *houses = NULL;
 		    
 		/** Answer storage for each thread. */
-		int *thread_answers;
+		int *thread_answers = NULL;
 
 		/** Input file stream. */
 		fstream in_file;
