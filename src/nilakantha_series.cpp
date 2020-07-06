@@ -14,22 +14,9 @@ nilakantha_series::nilakantha_series()
 
 	num_threads = omp_get_max_threads();
 
-	/* Allocate memory for the thread answers and thread block sizes*/
-
-	thread_answers = new(nothrow) int[3 * num_threads];
-
-	if(thread_answers == nullptr)
-	{
-
-		cerr << "Error: Unable to allocate houses memory.\n";
-
-		exit(EXIT_FAILURE);
-
-	}
-
 }
 
-void nilakantha_series::calulate(int user_input)
+void nilakantha_series::calculate(int user_input)
 {
 
 	terms = user_input;
@@ -48,14 +35,16 @@ void nilakantha_series::calulate(int user_input)
 
 	sum = term_0;
 
-	/* If we have no more terms, return this value */
+	/* Print out the value as asked */
+
+	fprintf(stdout, "%.6f\n", (double)sum);
+
+	/* If we have no more terms, exit */
 
 	if(terms < 2)
 	{
 
-		fprintf(stdout, "%.6f\n", (double)sum);
-
-		return(1);
+		return;
 
 	}
 
@@ -74,7 +63,7 @@ void nilakantha_series::calulate(int user_input)
 
 		/* The sign infront of the terms in this series alternates */
 
-		if(terms % 2 == 0)
+		if(i % 2 == 0)
 		{
 
 			sum -= (float)numerator / (float)denominator;
@@ -95,6 +84,6 @@ void nilakantha_series::calulate(int user_input)
 
 	/* The job is finished! */
 
-	return(1);
+	return;
 
 }
