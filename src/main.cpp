@@ -46,9 +46,7 @@ int main(int argc, char **argv)
 		/* Otherwise take in a protected slice of user input and
 		   attempt to convert to integer */
 
-		strncpy(input, argv[2], 127);
-
-		strncat(input, "\0", 1);
+		strncpy(input, argv[1], 126);
 
 		terms = atoi(input);
 
