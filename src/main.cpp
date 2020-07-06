@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 
 		strncpy(input, argv[2], 127);
 
-		input[127] = "\0"
+		strncat(input, "\0", 1);
 
 		terms = atoi(input);
 

@@ -9,7 +9,7 @@
 #include <fstream>
 using namespace std;
 
-class trick_or_treat
+class nilakantha_series
 {
 
 	public:
@@ -20,6 +20,9 @@ class trick_or_treat
 		/** Static numerator for the Nilakantha series.*/
 		int numerator = 4;
 
+		/** Denomenator holder for the Nilakantha series.*/
+		int denominator = 0;
+
 		/** First term in the denominator series.*/
 		int denom_start = 2;
 
@@ -28,6 +31,21 @@ class trick_or_treat
 
 		/** Holder for user input.*/
 		int terms = 0;
+
+		/** Accumulator for positive terms. */
+		double positive_sum = 0;
+
+		/** Accumulator for negative terms. */
+		double neagative_sum = 0;
+
+		/** Final accumulator. */
+		double sum = 0;
+
+		/** Standard iterator. */  
+		int i = 0;   
+
+		/** Another standard iterator. */  
+		int j = 0;   
 
 		/** Size of array chunk per thread.*/
 		int block_size = 0;
@@ -38,9 +56,6 @@ class trick_or_treat
 		/** Forward sliding window sum value. */
 		int cur_candy = 0; 
 	     
-		/** Standard iterator. */  
-		int i = 0;   
-
 		/** Number of houses in input from input. */
 		int num_houses = 0;
 	        
@@ -69,13 +84,13 @@ class trick_or_treat
 		int thread_start = 0;
 
 		/** Optimal end house. */
-		int trick_or_treat_end = 0;
+		int nilakantha_series_end = 0;
 
 		/** Optimal candy reward. */
-		int trick_or_treat_haul = 0;
+		int nilakantha_series_haul = 0;
 		
 		/** Optimal beginning house. */
-		int trick_or_treat_start = 0;
+		int nilakantha_series_start = 0;
 
 		/** Map of houses and candy values. */
 		int *houses = NULL;
@@ -87,12 +102,12 @@ class trick_or_treat
 		fstream in_file;
 
 		/** 
-		  * Initializer for the trick_or_treat class.
-		  * @see trick_or_treat
+		  * Initializer for the nilakantha_series class.
+		  * @see nilakantha_series
 		  * Get system thread information and allocate storage for
 		  * thread answers */
 
-		trick_or_treat();
+		nilakantha_series();
 
 		/** 
 		  * Reads in input from file input_file.
@@ -106,7 +121,7 @@ class trick_or_treat
 
 		/** Finds the highest candy yield path with the lowest starting
 		  * index.
-		  * This function is the workhorse of the trick_or_treat class.
+		  * This function is the workhorse of the nilakantha_series class.
 		  * The bulk of the function is parallelized with a scheme in 
 		  * which the input array, *houses, is split up into equal 
 		  * sized chunks per thread with the final thread taking any
@@ -116,7 +131,7 @@ class trick_or_treat
 		  * the thread has successfully searched its entire domain
 		  * from thread_start to thread_end where thread_start is
 		  * additionally used as an iterator.
-		  * @see trick_or_treat */
+		  * @see nilakantha_series */
 
 		void find_path();
 
@@ -127,11 +142,11 @@ class trick_or_treat
 		void report();
 
 		/** 
-		  * Destructor for the trick_or_treat class.
-		  * @see trick_or_treat
+		  * Destructor for the nilakantha_series class.
+		  * @see nilakantha_series
 		  * Frees memory related to *houses and *thread_answers
 		  */
 
-		~trick_or_treat();
+		~nilakantha_series();
 
 };
