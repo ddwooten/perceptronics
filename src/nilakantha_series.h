@@ -47,6 +47,9 @@ class nilakantha_series
 		/** Another standard iterator. */  
 		int j = 0;   
 
+		/** Number of threads. */
+		int num_threads = 0;
+
 		/** 
 		  * Initializer for the nilakantha_series class.
 		  * @see nilakantha_series
