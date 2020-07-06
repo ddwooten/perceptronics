@@ -1,0 +1,69 @@
+/******************************************************************************/
+
+QUICK START:
+
+1. Inside the directory src/ execute in shell: make all
+
+2. Run the executable, Trick_or_Treat, in a directory containing a file 	titled "input.txt"
+
+/******************************************************************************/
+
+Author: Daniel Wooten
+Email: danieldavidwooten@gmail.com
+Version: 1.0
+Release Date: 03/05/2020
+
+Welcome to the Trick or Treat route planner! 
+
+Documentation for all constructs may be found inside the docs/ directory.
+
+This README has 3 sections...
+
+1. Installation
+
+2. Usage
+
+3. Theory
+
+Section 1: Installation
+/******************************************************************************/
+
+The decompressed directory, wooten, contains two sub-directories, src/ and
+docs/. Setting src/ as the current directory, enter the command "make all" into
+a terminal. Upon successful compilation you will see the message
+"Trick_or_Treat compiled OK". You now have a functioning executable!
+
+Section 2: Usage
+/******************************************************************************/
+
+To use the Trick or Treat route planner you need to have a setup file titled
+"input.txt" inside the same directory as the Trick or Treat executable. From
+the terminal you may then run the executable and it will read in all of its
+settings from the "input.txt" file inside the directory where the executable 
+is located. 
+
+If you wish to use a different input file, located in a different directory and
+possible with a different name, provide the relative or absolute file path for
+this new input file as a command line argument following the invocation of the
+Trick or Treat route planner executable.
+
+
+Section 3: Theory 
+/******************************************************************************/
+
+While an exhaustive review of the principles involved is left to the reader,
+a few notes to the inner workings of the Trick or Treat route planner should be
+make. 
+
+In the trick_or_treat class method, find_path, the inner most loop executes a
+sliding window approach to finding the optimal candy acquisition path. 
+
+While the sliding window algorithm in itself is tried and true, the
+threaded implementation used here warrants a few words. The houses map is
+divided into equal chunks given how many system threads are accessible at
+program launch. Each thread is given one chunk of the array to search; however,
+a thread's search is only complete once its starting search index has reached
+the end of its chunk, otherwise it has failed to assess all possibilities within
+its domain. To prevent this shortcoming each thread is allowed to continue
+gathering path samples which extend beyond its territory as long as the
+starting point of all such paths remains within the thread's original bounds.
