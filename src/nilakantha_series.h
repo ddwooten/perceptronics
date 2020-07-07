@@ -48,8 +48,7 @@ class nilakantha_series
 
 		/** 
 		  * Initializer for the nilakantha_series class.
-		  * @see nilakantha_series
-		  * Get system thread information. */
+		  * Gets system thread information. */
 		nilakantha_series();
 
 		/** 

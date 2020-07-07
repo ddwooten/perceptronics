@@ -4,16 +4,16 @@ QUICK START:
 
 1. Inside the directory src/ execute in shell: make all
 
-2. Run the executable, Trick_or_Treat, in a directory containing a file 	titled "input.txt"
+2. Run the executable, Nilakantha_Series followed by a single positive integer input
 
 /******************************************************************************/
 
 Author: Daniel Wooten
 Email: danieldavidwooten@gmail.com
 Version: 1.0
-Release Date: 03/05/2020
+Release Date: 07/07/2020
 
-Welcome to the Trick or Treat route planner! 
+Welcome to the Nilakantha series calculator! 
 
 Documentation for all constructs may be found inside the docs/ directory.
 
@@ -23,47 +23,44 @@ This README has 3 sections...
 
 2. Usage
 
-3. Theory
+3. Considerations 
 
 Section 1: Installation
 /******************************************************************************/
 
-The decompressed directory, wooten, contains two sub-directories, src/ and
+The parent directory, perceptronics, contains two sub-directories, src/ and
 docs/. Setting src/ as the current directory, enter the command "make all" into
 a terminal. Upon successful compilation you will see the message
-"Trick_or_Treat compiled OK". You now have a functioning executable!
+"Nilakantha_Series compiled OK". You now have a functioning executable!
 
 Section 2: Usage
 /******************************************************************************/
 
-To use the Trick or Treat route planner you need to have a setup file titled
-"input.txt" inside the same directory as the Trick or Treat executable. From
-the terminal you may then run the executable and it will read in all of its
-settings from the "input.txt" file inside the directory where the executable 
-is located. 
+To use the Nilakantha series calculator, from the terminal call the executable 
+Nilakantha_series followed by a single positive integer value, such as '3' for
+example, and the program Will proceed to calculate and print out the first
+3 terms of the Nilakantha series or however many terms were represented by the
+input integer following program invocation.
 
-If you wish to use a different input file, located in a different directory and
-possible with a different name, provide the relative or absolute file path for
-this new input file as a command line argument following the invocation of the
-Trick or Treat route planner executable.
+Any other input will cause the program to error out.
 
-
-Section 3: Theory 
+Section 3: Considerations 
 /******************************************************************************/
 
-While an exhaustive review of the principles involved is left to the reader,
-a few notes to the inner workings of the Trick or Treat route planner should be
-make. 
+Largely, considerations of efficiency and maintainability do not conflict with
+one another. One area of this project in which they did was the exclusion of any
+temporary variable for computations - rather computations are executed monolithically.
+This is done prevent any intermediate memory usage or register shift - the compiler
+is encouraged to use fast-math as much as possible.
 
-In the trick_or_treat class method, find_path, the inner most loop executes a
-sliding window approach to finding the optimal candy acquisition path. 
+The other major area of conflict between efficiency and maintainability, even
+readability in this case, was the choice to have the threads loop over themselves
+following thread computation and value collection. While this looping is more
+complicated and takes more cycles than storing the thread computations
+and having a single thread manage value collection this method uses less memory,
+and more importantly no dynamically allocated memory.
 
-While the sliding window algorithm in itself is tried and true, the
-threaded implementation used here warrants a few words. The houses map is
-divided into equal chunks given how many system threads are accessible at
-program launch. Each thread is given one chunk of the array to search; however,
-a thread's search is only complete once its starting search index has reached
-the end of its chunk, otherwise it has failed to assess all possibilities within
-its domain. To prevent this shortcoming each thread is allowed to continue
-gathering path samples which extend beyond its territory as long as the
-starting point of all such paths remains within the thread's original bounds.
+In environments of compute rather than memory bound, it would be advisable to
+forgo the thread loop ( j loop in nilakantha_series::calculate ) in exchange for
+each thread saving their value to an intermediate array from which the master
+thread would manage value agglomeration.

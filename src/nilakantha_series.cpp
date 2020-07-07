@@ -140,10 +140,8 @@ void nilakantha_series::calculate()
 
 int nilakantha_series::check_input(char* input)
 {
-	/** Temporary storage for user input. */
 	double flt = atof(input);
 
-	/** Temporary storage for user input in int for. */
 	int tmp = atoi(input);
 
 	/* If the conversion failed, error out with message */

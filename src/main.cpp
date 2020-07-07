@@ -40,6 +40,14 @@ int main(int argc, char **argv)
 		return(0);
 
 	}
+	else if(argc > 2)
+	{
+
+		fprintf(stdout, "Additional input given with program invocation. Usage of the Nilakantha calculator requires the inclusion of one, and only one, command line argument with that argument being a positive integer. E.g. any of 1, 2, 3...\n");
+
+		return(0);
+
+	}
 	else
 	{
 
