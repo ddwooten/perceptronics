@@ -49,22 +49,34 @@ void nilakantha_series::calculate(int user_input)
 	}
 
 	/* If we have more terms, sum their contributions */
+	
+	/* Set the iterators */
 
-	#pragma omp parallel private(thread_num, thread_term)
+	i = 1;
+
+	j = 0;
+
+	/* Spawn off threads */
+
+	#pragma omp parallel 
 	{
 
-		/* Give the executing thread its thread number */
+		/* Give the executing thread its thread number and init private variables */
 
-		thread_num = omp_get_thread_num();
+		int thread_num = omp_get_thread_num();
 
-		/* Set the iterator */
+		double thread_term = 0.0;
 
-		i = 1;
+		fprintf(stdout, "Hello from thread %d\n", thread_num);
 
 		/* Begin looping through computation blocks towards the goal */
 
 		while(i < terms)
 		{
+			
+			/* Pause so that all threads are ready */
+
+			#pragma omp barrier
 
 			/* If this threads computation will be needed, do it */
 
@@ -75,9 +87,9 @@ void nilakantha_series::calculate(int user_input)
 
 			}
 
-			/* Pause so that all threads have finished */
+			/* Reset the global thread iterator before barrier */
 
-			#pragma omp barrier
+			j = 0;
 
 			/* If the thread term is a negative term in the series, make it so */
 
@@ -88,36 +100,57 @@ void nilakantha_series::calculate(int user_input)
 
 			}
 
+			fprintf(stdout, "Thread %d has value %.12f\n", thread_num, thread_term);
+
+			fprintf(stdout, "The sum value is %.12f\n", sum);
+
+
 			/* In order, add and print to screen the thread values to the sum */
 
-			for(j = 0; j < num_threads; j++)
+			while(true)
 			{
 
-				if( i >= terms)
-				{
+				/* Pause so that all threads are ready */
 
-					break;
-
-				}
+				#pragma omp barrier
 
 				if(thread_num == j)
 				{
 
 					sum += thread_term;
 
+					fprintf(stdout, "Thread %d added %.12f to sum for final sum of %.12f with i at %d and j at %d.\n", thread_num, thread_term, sum, i, j);
+
 					/* Print to screen the current result */
 
-					fprintf(stdout, "%.6f\n", sum);
+					fprintf(stdout, "%.12f\n", sum);
 
-					/* Increment i as it is needed */
+					/* Increment i and j as it is needed */
 
 					i += 1;
+
+					j += 1;
+
+					fprintf(stdout, "Thread %d reports i and j and %d and %d.\n", thread_num, i, j);
 
 				}
 
 				/* Make sure all threads wait to continue together */
 
+				fprintf(stdout, "BARRIER!!!\n\n");
+
 				#pragma omp barrier
+
+				fprintf(stdout, "Thread %d reports i and j and %d and %d.\n", thread_num, i, j);
+
+				/* If we have finished printing, exit */
+
+				if((j == num_threads) || (i == terms))
+				{
+
+					break;
+
+				}
 
 			}
 

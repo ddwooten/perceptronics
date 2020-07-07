@@ -50,10 +50,6 @@ class nilakantha_series
 		/** Number of threads. */
 		int num_threads = 0;
 
-		/** Individual thread number. */
-		int thread_num = 0;
-
-		/** Independent thread variable */
 		double thread_term = 0;
 
 		/** 
