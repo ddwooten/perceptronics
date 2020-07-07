@@ -1,0 +1,154 @@
+\hypertarget{classtrick__or__treat}{}\doxysection{trick\+\_\+or\+\_\+treat Class Reference}
+\label{classtrick__or__treat}\index{trick\_or\_treat@{trick\_or\_treat}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtrick__or__treat_a7d7becdc50a1b4da7abf7ba671e6f9f7}{trick\+\_\+or\+\_\+treat}} ()
+\begin{DoxyCompactList}\small\item\em Initializer for the \mbox{\hyperlink{classtrick__or__treat}{trick\+\_\+or\+\_\+treat}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtrick__or__treat_a2586ed3a29e095b9cd6cc8898959044f}{read\+\_\+input}} (char $\ast$input\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Reads in input from file input\+\_\+file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtrick__or__treat_a43e0c45ec1c0db9dc122c79e2b6af2ec}{find\+\_\+path}} ()
+\begin{DoxyCompactList}\small\item\em Finds the highest candy yield path with the lowest starting index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtrick__or__treat_a6851f4c3a1960fb95ed4d9b5cc090730}{report}} ()
+\begin{DoxyCompactList}\small\item\em Prints to standard out the results of find\+\_\+path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtrick__or__treat_a4a5b2c27958c39e7ae0182f16c582a01}{$\sim$trick\+\_\+or\+\_\+treat}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classtrick__or__treat}{trick\+\_\+or\+\_\+treat}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtrick__or__treat_aa4e7274709c74407756130e26fb628b6}\label{classtrick__or__treat_aa4e7274709c74407756130e26fb628b6}} 
+int \mbox{\hyperlink{classtrick__or__treat_aa4e7274709c74407756130e26fb628b6}{block\+\_\+size}} = 0
+\begin{DoxyCompactList}\small\item\em Size of array chunk per thread. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_aca20ad34babe2fe9f4121563fd5cca8a}\label{classtrick__or__treat_aca20ad34babe2fe9f4121563fd5cca8a}} 
+int \mbox{\hyperlink{classtrick__or__treat_aca20ad34babe2fe9f4121563fd5cca8a}{candy\+\_\+limit}} = 0
+\begin{DoxyCompactList}\small\item\em Maximum candy limit from input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_a05570f701d3534cfe3169d4d0c936acc}\label{classtrick__or__treat_a05570f701d3534cfe3169d4d0c936acc}} 
+int \mbox{\hyperlink{classtrick__or__treat_a05570f701d3534cfe3169d4d0c936acc}{cur\+\_\+candy}} = 0
+\begin{DoxyCompactList}\small\item\em Forward sliding window sum value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_a4850bba4f3a96de18dbf7d5f71577f9e}\label{classtrick__or__treat_a4850bba4f3a96de18dbf7d5f71577f9e}} 
+int \mbox{\hyperlink{classtrick__or__treat_a4850bba4f3a96de18dbf7d5f71577f9e}{i}} = 0
+\begin{DoxyCompactList}\small\item\em Standard iterator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_abcb511cf701338f5db7fb52009a6b316}\label{classtrick__or__treat_abcb511cf701338f5db7fb52009a6b316}} 
+int \mbox{\hyperlink{classtrick__or__treat_abcb511cf701338f5db7fb52009a6b316}{num\+\_\+houses}} = 0
+\begin{DoxyCompactList}\small\item\em Number of houses in input from input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_a58aaec46e0e5b4a80741b398b09310a8}\label{classtrick__or__treat_a58aaec46e0e5b4a80741b398b09310a8}} 
+int \mbox{\hyperlink{classtrick__or__treat_a58aaec46e0e5b4a80741b398b09310a8}{num\+\_\+threads}} = 0
+\begin{DoxyCompactList}\small\item\em Number of total program threads. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_ad356698861835b7c7aee96a7b2f1dba3}\label{classtrick__or__treat_ad356698861835b7c7aee96a7b2f1dba3}} 
+int \mbox{\hyperlink{classtrick__or__treat_ad356698861835b7c7aee96a7b2f1dba3}{prev\+\_\+end}} = 0
+\begin{DoxyCompactList}\small\item\em Lagged sliding window end index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_aedd85bf5bf09e1cc09dc8d9ab545d972}\label{classtrick__or__treat_aedd85bf5bf09e1cc09dc8d9ab545d972}} 
+int \mbox{\hyperlink{classtrick__or__treat_aedd85bf5bf09e1cc09dc8d9ab545d972}{prev\+\_\+max}} = 0
+\begin{DoxyCompactList}\small\item\em Lagged sliding window sum value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_a549c68def39da63a4fafecd21575c2ec}\label{classtrick__or__treat_a549c68def39da63a4fafecd21575c2ec}} 
+int \mbox{\hyperlink{classtrick__or__treat_a549c68def39da63a4fafecd21575c2ec}{prev\+\_\+start}} = 0
+\begin{DoxyCompactList}\small\item\em Lagged sliding window start index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_ab2a15047ad5616671187b2ce73a58605}\label{classtrick__or__treat_ab2a15047ad5616671187b2ce73a58605}} 
+int \mbox{\hyperlink{classtrick__or__treat_ab2a15047ad5616671187b2ce73a58605}{route\+\_\+end}} = 0
+\begin{DoxyCompactList}\small\item\em Forward sliding window end value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_a2987289f39b3c6efdda8923a2b45f9c9}\label{classtrick__or__treat_a2987289f39b3c6efdda8923a2b45f9c9}} 
+int \mbox{\hyperlink{classtrick__or__treat_a2987289f39b3c6efdda8923a2b45f9c9}{thread\+\_\+end}} = 0
+\begin{DoxyCompactList}\small\item\em Upper limit of given thread\textquotesingle{}s range. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_a9652e57057647b443938dd3c0221bb5f}\label{classtrick__or__treat_a9652e57057647b443938dd3c0221bb5f}} 
+int \mbox{\hyperlink{classtrick__or__treat_a9652e57057647b443938dd3c0221bb5f}{thread\+\_\+num}} = 0
+\begin{DoxyCompactList}\small\item\em Thread id number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_a53bdcb4074aa9c59158e395096a526e9}\label{classtrick__or__treat_a53bdcb4074aa9c59158e395096a526e9}} 
+int \mbox{\hyperlink{classtrick__or__treat_a53bdcb4074aa9c59158e395096a526e9}{thread\+\_\+start}} = 0
+\begin{DoxyCompactList}\small\item\em Lower limit of given thread range. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_aaa5baa0edfd281fd52ff8cb6056ee7c7}\label{classtrick__or__treat_aaa5baa0edfd281fd52ff8cb6056ee7c7}} 
+int \mbox{\hyperlink{classtrick__or__treat_aaa5baa0edfd281fd52ff8cb6056ee7c7}{trick\+\_\+or\+\_\+treat\+\_\+end}} = 0
+\begin{DoxyCompactList}\small\item\em Optimal end house. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_abd506723119331fbfbca9a71f02feb79}\label{classtrick__or__treat_abd506723119331fbfbca9a71f02feb79}} 
+int \mbox{\hyperlink{classtrick__or__treat_abd506723119331fbfbca9a71f02feb79}{trick\+\_\+or\+\_\+treat\+\_\+haul}} = 0
+\begin{DoxyCompactList}\small\item\em Optimal candy reward. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_afec9e1502ddecc04b95758c59b20a275}\label{classtrick__or__treat_afec9e1502ddecc04b95758c59b20a275}} 
+int \mbox{\hyperlink{classtrick__or__treat_afec9e1502ddecc04b95758c59b20a275}{trick\+\_\+or\+\_\+treat\+\_\+start}} = 0
+\begin{DoxyCompactList}\small\item\em Optimal beginning house. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_adf5c1d5ad0c8d3c15a00ddc89a6e915b}\label{classtrick__or__treat_adf5c1d5ad0c8d3c15a00ddc89a6e915b}} 
+int $\ast$ \mbox{\hyperlink{classtrick__or__treat_adf5c1d5ad0c8d3c15a00ddc89a6e915b}{houses}}
+\begin{DoxyCompactList}\small\item\em Map of houses and candy values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_aa4ce24482d71a24a0724fdcc88c100d0}\label{classtrick__or__treat_aa4ce24482d71a24a0724fdcc88c100d0}} 
+int $\ast$ \mbox{\hyperlink{classtrick__or__treat_aa4ce24482d71a24a0724fdcc88c100d0}{thread\+\_\+answers}}
+\begin{DoxyCompactList}\small\item\em Answer storage for each thread. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtrick__or__treat_a99ff5096e569b2a2b49b9f390020d0d5}\label{classtrick__or__treat_a99ff5096e569b2a2b49b9f390020d0d5}} 
+fstream \mbox{\hyperlink{classtrick__or__treat_a99ff5096e569b2a2b49b9f390020d0d5}{in\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em Input file stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtrick__or__treat_a7d7becdc50a1b4da7abf7ba671e6f9f7}\label{classtrick__or__treat_a7d7becdc50a1b4da7abf7ba671e6f9f7}} 
+\index{trick\_or\_treat@{trick\_or\_treat}!trick\_or\_treat@{trick\_or\_treat}}
+\index{trick\_or\_treat@{trick\_or\_treat}!trick\_or\_treat@{trick\_or\_treat}}
+\doxysubsubsection{\texorpdfstring{trick\_or\_treat()}{trick\_or\_treat()}}
+{\footnotesize\ttfamily trick\+\_\+or\+\_\+treat\+::trick\+\_\+or\+\_\+treat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializer for the \mbox{\hyperlink{classtrick__or__treat}{trick\+\_\+or\+\_\+treat}} class. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classtrick__or__treat}{trick\+\_\+or\+\_\+treat}} Get system thread information and allocate storage for thread answers 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classtrick__or__treat_a4a5b2c27958c39e7ae0182f16c582a01}\label{classtrick__or__treat_a4a5b2c27958c39e7ae0182f16c582a01}} 
+\index{trick\_or\_treat@{trick\_or\_treat}!````~trick\_or\_treat@{$\sim$trick\_or\_treat}}
+\index{````~trick\_or\_treat@{$\sim$trick\_or\_treat}!trick\_or\_treat@{trick\_or\_treat}}
+\doxysubsubsection{\texorpdfstring{$\sim$trick\_or\_treat()}{~trick\_or\_treat()}}
+{\footnotesize\ttfamily trick\+\_\+or\+\_\+treat\+::$\sim$trick\+\_\+or\+\_\+treat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for the \mbox{\hyperlink{classtrick__or__treat}{trick\+\_\+or\+\_\+treat}} class. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classtrick__or__treat}{trick\+\_\+or\+\_\+treat}} Frees memory related to $\ast$houses and $\ast$thread\+\_\+answers 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtrick__or__treat_a43e0c45ec1c0db9dc122c79e2b6af2ec}\label{classtrick__or__treat_a43e0c45ec1c0db9dc122c79e2b6af2ec}} 
+\index{trick\_or\_treat@{trick\_or\_treat}!find\_path@{find\_path}}
+\index{find\_path@{find\_path}!trick\_or\_treat@{trick\_or\_treat}}
+\doxysubsubsection{\texorpdfstring{find\_path()}{find\_path()}}
+{\footnotesize\ttfamily void trick\+\_\+or\+\_\+treat\+::find\+\_\+path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finds the highest candy yield path with the lowest starting index. 
+
+This function is the workhorse of the \mbox{\hyperlink{classtrick__or__treat}{trick\+\_\+or\+\_\+treat}} class. The bulk of the function is parallelized with a scheme in which the input array, $\ast$houses, is split up into equal sized chunks per thread with the final thread taking any remainder. Each thread solves its own portion of the array advancing until it sees the end of the array or the arrival of its own start point at its end point -\/ meaning the thread has successfully searched its entire domain from thread\+\_\+start to thread\+\_\+end where thread\+\_\+start is additionally used as an iterator. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classtrick__or__treat}{trick\+\_\+or\+\_\+treat}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classtrick__or__treat_a2586ed3a29e095b9cd6cc8898959044f}\label{classtrick__or__treat_a2586ed3a29e095b9cd6cc8898959044f}} 
+\index{trick\_or\_treat@{trick\_or\_treat}!read\_input@{read\_input}}
+\index{read\_input@{read\_input}!trick\_or\_treat@{trick\_or\_treat}}
+\doxysubsubsection{\texorpdfstring{read\_input()}{read\_input()}}
+{\footnotesize\ttfamily void trick\+\_\+or\+\_\+treat\+::read\+\_\+input (\begin{DoxyParamCaption}\item[{char $\ast$}]{input\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Reads in input from file input\+\_\+file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+file} & string representing path to input file input\+\_\+file is passed by main() with a default argument \textquotesingle{}./../input.txt\textquotesingle{} which can be overridden by passing the input file path as a command line argument to the calling of main. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtrick__or__treat_a6851f4c3a1960fb95ed4d9b5cc090730}\label{classtrick__or__treat_a6851f4c3a1960fb95ed4d9b5cc090730}} 
+\index{trick\_or\_treat@{trick\_or\_treat}!report@{report}}
+\index{report@{report}!trick\_or\_treat@{trick\_or\_treat}}
+\doxysubsubsection{\texorpdfstring{report()}{report()}}
+{\footnotesize\ttfamily void trick\+\_\+or\+\_\+treat\+::report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints to standard out the results of find\+\_\+path. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classtrick__or__treat_a43e0c45ec1c0db9dc122c79e2b6af2ec}{find\+\_\+path()}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/trick\+\_\+or\+\_\+treat.\+h\item 
+src/trick\+\_\+or\+\_\+treat.\+cpp\end{DoxyCompactItemize}
