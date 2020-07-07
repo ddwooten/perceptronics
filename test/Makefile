@@ -6,7 +6,7 @@ CC  	 = g++
 CCM      = g++
 CFLAGS   = -Wall -ansi -ffast-math -O3 -std=c++17
 LDFLAGS  = -lm -std=c++17
-GTEST = -I/home/dwooten/Documents/googletest/googletest/include -L/home/dwooten/Documents/googletest/googletest/build/lib -lgtest -lgtest_main
+TEST = -I/home/dwooten/Documents/cppunit/include -I/home/dwooten/Documents/cppunit/include/cppunit/extensions
 
 # Parallel calculation using Open MP:
 
@@ -72,12 +72,13 @@ LDFLAGS += -g
 
 ###############################################################################
 
-OBJS	=	trickortreattest.o \
-		trick_or_treat.o
+OBJS	=	nilakantha_series_TEST.o \
+		nilakantha_series.o \
+		main.o
 
 ###############################################################################
 
-EXE     = Trick_or_Treat_TEST
+EXE     = run_tests 
 
 DATE 	= -DMC_COMPILE_DATE="\"`date `\""
 
@@ -92,18 +93,21 @@ lbits := $(shell getconf LONG_BIT)
 
 ###############################################################################
 all:    $(EXE)
-	@echo "Trick_or_Treat_TEST Compiled OK."
+	@echo "Niakantha_Series_TEST Compiled OK."
 
 $(EXE): $(OBJS) 
-	$(CCM) $(OBJS) $(LDFLAGS) $(GTEST) -o $(EXE)
+	$(CCM) $(OBJS) $(LDFLAGS) $(TEST) -o $(EXE)
 
 clean:	
 	$(RM) $(OBJS) $(FOBJS) $(OBSOLETE)
 
 ###############################################################################
 
-trickortreattest.o: trickortreattest.cpp trickortreattest.h
-	$(CC) $(CFLAGS) $(GTEST) -c trickortreattest.cpp 
+nilakantha_series_TEST.o: nilakantha_series_TEST.cpp nilakantha_series_TEST.h
+	$(CC) $(CFLAGS) $(TEST) -c nilakantha_series_TEST.cpp 
 
-trick_or_treat.o: ../src/trick_or_treat.cpp ../src/trick_or_treat.h
-	$(CC) $(CFLAGS) $(GTEST) -c ../src/trick_or_treat.cpp 
+nilakantha_series.o: ../src/nilakantha_series.cpp ../src/nilakantha_series.h
+	$(CC) $(CFLAGS) $(TEST) -c ../src/nilakantha_series.cpp 
+
+main.o: main.cpp 
+	$(CC) $(CFLAGS) $(TEST) -c main.cpp 

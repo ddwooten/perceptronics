@@ -3,17 +3,17 @@
 #include <string>
 #include <fstream>
 #include <omp.h>
-#include <memory>
-#include "../src/trick_or_treat.h"
-#include "/home/dwooten/Documents/cppunit/include/cppunit/extensions/TestFactoryRegistry.h"
-#include "/home/dwooten/Documents/cppunit/include/cppunit/CompilerOutputter.h"
-#include "/home/dwooten/Documents/cppunit/include/cppunit/ui/text/TestRunner.h"
-#include "trick_or_treat_TEST.h"
+#include <CompilerOutputter.h>
+#include <TestFactorRegistry.h>
+#include <TestRunner.h>
+#include "../src/nilakantha_series.h"
+#include "nilakantha_series_TEST.h"
 
 
 int main()
 {
-
+	
+	/** Error code. */
 	int status = 0;
 
 	/* Get the top level suite from the registry */
