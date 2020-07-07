@@ -67,8 +67,6 @@ void nilakantha_series::calculate(int user_input)
 
 		double thread_term = 0.0;
 
-		fprintf(stdout, "Hello from thread %d\n", thread_num);
-
 		/* Begin looping through computation blocks towards the goal */
 
 		while(i < terms)
@@ -100,10 +98,6 @@ void nilakantha_series::calculate(int user_input)
 
 			}
 
-			fprintf(stdout, "Thread %d has value %.12f\n", thread_num, thread_term);
-
-			fprintf(stdout, "The sum value is %.12f\n", sum);
-
 
 			/* In order, add and print to screen the thread values to the sum */
 
@@ -119,8 +113,6 @@ void nilakantha_series::calculate(int user_input)
 
 					sum += thread_term;
 
-					fprintf(stdout, "Thread %d added %.12f to sum for final sum of %.12f with i at %d and j at %d.\n", thread_num, thread_term, sum, i, j);
-
 					/* Print to screen the current result */
 
 					fprintf(stdout, "%.12f\n", sum);
@@ -131,17 +123,11 @@ void nilakantha_series::calculate(int user_input)
 
 					j += 1;
 
-					fprintf(stdout, "Thread %d reports i and j and %d and %d.\n", thread_num, i, j);
-
 				}
 
 				/* Make sure all threads wait to continue together */
 
-				fprintf(stdout, "BARRIER!!!\n\n");
-
 				#pragma omp barrier
-
-				fprintf(stdout, "Thread %d reports i and j and %d and %d.\n", thread_num, i, j);
 
 				/* If we have finished printing, exit */
 

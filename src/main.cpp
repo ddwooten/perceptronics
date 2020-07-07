@@ -61,6 +61,15 @@ int main(int argc, char **argv)
 
 		}
 		
+		if(terms < 0)
+		{
+
+			fprintf(stdout, "User provided integer input of %d. Input must be positive.\n", terms);
+
+			return(0);
+
+		}
+		
 	}
 
 	/* Initiate the nilakantha_series class */
