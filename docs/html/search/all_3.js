@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['j_6',['j',['../classnilakantha__series.html#aabd05d6f37c1f2591f4a8ce6329ecff1',1,'nilakantha_series']]]
+  ['nilakantha_5fseries_4',['nilakantha_series',['../classnilakantha__series.html',1,'nilakantha_series'],['../classnilakantha__series.html#a345daac4fb6a8873b61dbd6b67e0b500',1,'nilakantha_series::nilakantha_series()']]],
+  ['num_5fthreads_5',['num_threads',['../classnilakantha__series.html#a6f40ae3448a763e3409af6e67fd1e2cd',1,'nilakantha_series']]],
+  ['numerator_6',['numerator',['../classnilakantha__series.html#a48ef91ac73e38a798958abc0d0f37a7b',1,'nilakantha_series']]]
 ];
