@@ -19,15 +19,6 @@ class nilakantha_series
 		/** Static numerator for the Nilakantha series.*/
 		int numerator = 4;
 
-		/** Denomenator holder for the Nilakantha series.*/
-		int denominator = 0;
-
-		/** First term in the denominator series.*/
-		int denom_start = 2;
-
-		/** Lenth of the simple denomintor series.*/
-		int denom_depth = 2;
-
 		/** Holder for user input.*/
 		int terms = 0;
 
