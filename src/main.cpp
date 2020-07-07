@@ -9,11 +9,11 @@ using namespace std;
 
 /** 
   * Executing function of the programming challenge.
-  * main() ay optionally take 1 command line argument. This argument is the
-  * relative or absolute path to an input file for the programming challenge.
-  * main() uses a default value for this path of './../input.txt' which will
-  * be overridden by *any* command line input following the invocation of
-  * the executable.
+  * main() takes 1 command line argument. This argument is the
+  * is the number of terms in the Nilakantha series which the
+  * program should output to stdout. 
+  * main() only accepts positive integer values as input.
+  * Any other such input will be caught by @see check_input()
   * @param argc The number of command line arguments including the function name
   * @param argv Array of char* to command line inputs in string format
   */
@@ -24,8 +24,8 @@ int main(int argc, char **argv)
 	/** Storage for user input before integer conversion.*/
 	char input[128];
 
-	/** Integer user input for desired number of terms in computation.*/
-	int terms = 0;
+	/** Error check variable. */
+	int pass = 0;
 
 	/** @see nilakantha_series. */
 	nilakantha_series* this_series;
@@ -43,42 +43,32 @@ int main(int argc, char **argv)
 	else
 	{
 
-		/* Otherwise take in a protected slice of user input and
-		   attempt to convert to integer */
+		/* Take in a protected slice of user input */
 
 		strncpy(input, argv[1], 126);
 
-		terms = atoi(input);
-
-		/* If the conversion failed, error out with message */
-		
-		if(terms == 0)
-		{
-
-			fprintf(stdout, "Attempted conversion of user input, %s, to integer. Conversion failed. Please invoke this program with command line input which can be converted from type of string to type of integer.\n", input);
-
-			return(0);
-
-		}
-		
-		if(terms < 0)
-		{
-
-			fprintf(stdout, "User provided integer input of %d. Input must be positive.\n", terms);
-
-			return(0);
-
-		}
-		
 	}
 
 	/* Initiate the nilakantha_series class */
 
 	this_series = new nilakantha_series{};
 
+	/* Check the user input */
+
+	pass = this_series -> check_input(input);
+
+	/* If the check failed, exit out with 0 */
+
+	if(pass != 1)
+	{
+
+		return(0);
+
+	}
+
 	/* Begin the calculation */
 
-	this_series -> calculate(terms);
+	this_series -> calculate();
 
 	/* Exit gracefully */
 

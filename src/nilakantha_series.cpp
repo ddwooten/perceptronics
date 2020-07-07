@@ -16,20 +16,8 @@ nilakantha_series::nilakantha_series()
 
 }
 
-void nilakantha_series::calculate(int user_input)
+void nilakantha_series::calculate()
 {
-
-	terms = user_input;
-
-	/* Ensure we have good input */
-
-	if(terms < 1)
-	{
-
-		fprintf(stderr, "User input is invalid with value of %d.\n", 
-		        terms);
-
-	}
 
 	/* The first term of the series is our return value at least */
 
@@ -147,5 +135,54 @@ void nilakantha_series::calculate(int user_input)
 	/* The job is finished! */
 
 	return;
+
+}
+
+int nilakantha_series::check_input(char* input)
+{
+	/** Temporary storage for user input. */
+	double flt = atof(input);
+
+	/** Temporary storage for user input in int for. */
+	int tmp = atoi(input);
+
+	/* If the conversion failed, error out with message */
+
+	if(tmp == 0)
+	{
+
+		fprintf(stdout, "Attempted conversion of user input, %s, to integer. Conversion failed. Please invoke this program with command line input which can be converted from type of string to type of integer.\n", input);
+
+		return(0);
+
+	}
+
+	/* If the user input was a floating point number, error out */
+
+	if(flt != tmp)
+	{
+
+		fprintf(stdout, "User provided floating point input of %f. Input must be positive integer.\n", flt);
+
+		return(0);
+
+	}
+
+	/* If the input is less than 0, error out */
+
+	if(tmp < 0)
+	{
+
+		fprintf(stdout, "User provided integer input of %d. Input must be positive.\n", tmp);
+
+		return(0);
+
+	}
+
+	/* If the input made it here, its good, save it to the object. */
+
+	terms = tmp;
+
+	return(1);
 
 }

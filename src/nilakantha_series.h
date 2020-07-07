@@ -1,10 +1,9 @@
 /** 
   * Workhorse class of the programming challenge.
-  * Handles input file reading and problem setup, problem solution, and answer
-  * reporting. In respective order...
-  * @see read_input(char* input_file)
-  * @see find_path()
-  * @see report()
+  * Handles input reading and thread management, problem solution, and answer
+  * reporting. 
+  * @see calculate()
+  * @see check_input(char* input)
   */
 #include <fstream>
 using namespace std;
@@ -32,13 +31,7 @@ class nilakantha_series
 		/** Holder for user input.*/
 		int terms = 0;
 
-		/** Accumulator for positive terms. */
-		double positive_sum = 0;
-
-		/** Accumulator for negative terms. */
-		double neagative_sum = 0;
-
-		/** Final accumulator. */
+		/** Accumulator. */
 		double sum = 0;
 
 		/** Standard iterator. */  
@@ -50,26 +43,42 @@ class nilakantha_series
 		/** Number of threads. */
 		int num_threads = 0;
 
+		/** Storage per thread for unique value. */
 		double thread_term = 0;
 
 		/** 
 		  * Initializer for the nilakantha_series class.
 		  * @see nilakantha_series
-		  * Get system thread information and allocate storage for
-		  * thread answers */
-
+		  * Get system thread information. */
 		nilakantha_series();
 
 		/** 
-		  * Reads in input from file input_file.
-		  * @param input_file string representing path to input file
-		  * input_file is passed by main() with a default argument 
-		  * './../input.txt' which can be overridden by passing the
-		  * input file path as a command line argument to the calling
-		  * of main. */
+		  * Manages threads and computes series terms. 
+		  * calculate is a thread aware method which
+		  * seeks to compute the n terms of the Nilakantha
+		  * series where n is gotten from user input.
+		  * calculate seeks to use as many threads as the
+		  * system will make available. Threads execute
+		  * their calculations in parrallel and subsequently
+		  * loop over themselves to return and report the
+		  * value calculated by each thread. While looping
+		  * for report and update takes more compute time
+		  * it uses less memory, and no dynamically allocated
+		  * memory, as opposed to a method in which each
+		  * thread simply stored their value and the master
+		  * thread dealt with the subsequent integration.
+		  * Most environments are memory bound but should this
+		  * algorithm be deployed in a compute bound environment
+		  * thread reporting should be shifted from loops to
+		  * writes.*/
+		void calculate();
 
-		void calculate(int user_input);
+		/** Checks user input.
+		  * Returns 1 for good input and returns 0 for bad input. */
+		int check_input(char* input);
 
+
+		/** Deconstructor for the class object.*/
 		~nilakantha_series();
 
 };
