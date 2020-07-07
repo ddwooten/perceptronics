@@ -37,7 +37,7 @@ Section 2: Usage
 /******************************************************************************/
 
 To use the Nilakantha series calculator, from the terminal call the executable 
-Nilakantha_series followed by a single positive integer value, such as '3' for
+Nilakantha_Series followed by a single positive integer value, such as '3' for
 example, and the program Will proceed to calculate and print out the first
 3 terms of the Nilakantha series or however many terms were represented by the
 input integer following program invocation.
