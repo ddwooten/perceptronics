@@ -54,7 +54,7 @@ class nilakantha_series
 		int thread_num = 0;
 
 		/** Independent thread variable */
-		int thread_term = 0;
+		double thread_term = 0;
 
 		/** 
 		  * Initializer for the nilakantha_series class.

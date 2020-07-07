@@ -71,7 +71,7 @@ void nilakantha_series::calculate(int user_input)
 			if((thread_num + i) < terms)
 			{
 
-				thread_term = (double)numerator /(double)(((i + thread_num) * 2) * ((i + thread_num) * 2 + 1) * ((i + thread_num) * 2 + 2));
+				thread_term = (double)numerator / (double)(((i + thread_num) * 2) * ((i + thread_num) * 2 + 1) * ((i + thread_num) * 2 + 2));
 
 			}
 
