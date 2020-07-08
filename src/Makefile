@@ -110,3 +110,6 @@ main.o: main.cpp
 
 nilakantha_series.o: nilakantha_series.cpp nilakantha_series.h
 	$(CC) $(CFLAGS) -c nilakantha_series.cpp 
+
+series_calculator.o: series_calculator.cpp series_calculator.h
+	$(CC) $(CFLAGS) -c series_calculator.cpp 

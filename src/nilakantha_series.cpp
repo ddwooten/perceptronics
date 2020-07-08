@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void nilakantha_series::step(int i)
+double nilakantha_series::step(int i)
 {
 
 	/* The first term is unique, return if needed */

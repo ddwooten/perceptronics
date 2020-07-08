@@ -16,7 +16,7 @@ series_calculator::series_calculator()
 
 }
 
-void series_calculator::advance(a function pointer named foo)
+void series_calculator::advance()
 {
 
 	/* Set the iterators */
@@ -50,7 +50,7 @@ void series_calculator::advance(a function pointer named foo)
 			if((thread_num + i) < terms)
 			{
 
-				thread_term = foo(thread_num + i);
+				thread_term = step(thread_num + i);
 
 			}
 
@@ -153,5 +153,12 @@ int series_calculator::check_input(char* input)
 	terms = tmp;
 
 	return(1);
+
+}
+
+virtual int series_calculator::step(int i)
+{
+
+	return(0);
 
 }

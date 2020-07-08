@@ -61,8 +61,11 @@ class series_calculator
 		  * Returns 1 for good input and returns 0 for bad input. */
 		int check_input(char* input);
 
-
-		/** Deconstructor for the class object.*/
-		~series_calculator();
+		/** Virtual function which provides i-th step of arbitrary series. 
+		  * This virtual function is a place holder intended to allow
+		  * polymorphic deployment of derived classes holding step
+		  * functions for arbitrary sequences, such as the 
+		  * Nilakantha series. */
+		double step(int i);
 
 };
