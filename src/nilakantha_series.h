@@ -11,6 +11,9 @@ class nilakantha_series: public series_calculator
 
 	public:
 
+		/** Calculation holder. */
+		double nilakantha_term = 0;
+
 		nilakantha_series();
 
 		/** Method which returns the i-th step of the Nilakantha series. */

@@ -23,7 +23,7 @@ double nilakantha_series::step(int i)
 
 	/* Otherwise, begin calculating the return value */
 
-	double nilakantha_term = 4.0 / (double)((i * 2) * (i * 2 + 1) * (i * 2 + 2));
+	nilakantha_term = 4.0 / (double)((i * 2) * (i * 2 + 1) * (i * 2 + 2));
 
 	/* If the term is a negative term in the series, make it so */
 

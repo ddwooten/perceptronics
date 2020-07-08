@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 
 	/* Initialize an instance of nilakantha class */
 	
-	this_series = new 
+	this_series = new nilakantha_series{}; 
 
 	/* Check the user input */
 
