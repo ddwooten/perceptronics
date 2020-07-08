@@ -27,11 +27,8 @@ int main(int argc, char **argv)
 	/** Error check variable. */
 	int pass = 0;
 
-	/**@see series_calculator. */
-	series_calculator* calculator;
-
 	/** @see nilakantha_series. */
-	nilakantha_series this_series;
+	nilakantha_series* this_series;
 
 	/* If no arguments given, error out */
 
@@ -60,13 +57,13 @@ int main(int argc, char **argv)
 
 	}
 
-	/* Connect this_series to the calculator base class */
-
-	calculator = &this_series;
+	/* Initialize an instance of nilakantha class */
+	
+	this_series = new 
 
 	/* Check the user input */
 
-	pass = calculator -> check_input(input);
+	pass = this_series -> check_input(input);
 
 	/* If the check failed, exit out with 0 */
 
@@ -79,7 +76,7 @@ int main(int argc, char **argv)
 
 	/* Begin the calculation */
 
-	calculator -> calculate();
+	this_series -> calculate();
 
 	/* Exit gracefully */
 
