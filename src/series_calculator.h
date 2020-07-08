@@ -66,6 +66,6 @@ class series_calculator
 		  * polymorphic deployment of derived classes holding step
 		  * functions for arbitrary sequences, such as the 
 		  * Nilakantha series. */
-		virtual double step(int i);
+		double step(int i);
 
 };

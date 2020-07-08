@@ -7,7 +7,9 @@
 
 using namespace std;
 
-double nilakantha_series::step(int i) : step(int i)
+nilakantha_series::nilakantha_series() : series_calculator(){}
+
+double nilakantha_series::step(int i)
 {
 
 	/* The first term is unique, return if needed */

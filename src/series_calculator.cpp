@@ -16,7 +16,7 @@ series_calculator::series_calculator()
 
 }
 
-void series_calculator::advance()
+void series_calculator::calculate()
 {
 
 	/* Set the iterators */
@@ -156,7 +156,7 @@ int series_calculator::check_input(char* input)
 
 }
 
-virtual double series_calculator::step(int i)
+double series_calculator::step(int i)
 {
 
 	return((double)i);
