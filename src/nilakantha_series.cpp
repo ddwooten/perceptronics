@@ -7,6 +7,8 @@
 
 using namespace std;
 
+/* Use constructor from the base class */
+
 nilakantha_series::nilakantha_series() : series_calculator(){}
 
 double nilakantha_series::step(int i)
@@ -33,6 +35,8 @@ double nilakantha_series::step(int i)
 		nilakantha_term = nilakantha_term * -1.0;
 
 	}
+
+	/* Return the computed answer if applicable */
 
 	return(nilakantha_term);
 

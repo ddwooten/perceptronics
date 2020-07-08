@@ -93,6 +93,8 @@ void series_calculator::calculate()
 
 				}
 
+				/* Pause so that all threads exit together */
+
 				#pragma omp barrier
 
 			} while(do_not_exit);

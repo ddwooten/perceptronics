@@ -2,6 +2,10 @@
   * Workhorse class of the programming challenge.
   * Handles input reading and thread management, problem solution, and answer
   * reporting. 
+  * This class acts as the base class from which derived classes having
+  * a more applicable step function should be constructed as is seen in
+  * the nilakantha_series class.
+  * @see nilakantha_series
   * @see calculate()
   * @see check_input(char* input)
   */
@@ -40,9 +44,9 @@ class series_calculator
 		series_calculator();
 
 		/** 
-		  * Manages threads and computes series terms. 
+		  * Manages threads and and calls virtual step function. 
 		  * calculate is a thread aware method which
-		  * seeks to compute the n terms of the Nilakantha
+		  * seeks to compute the n terms of an arbitrary
 		  * series where n is gotten from user input.
 		  * calculate seeks to use as many threads as the
 		  * system will make available. Threads execute
@@ -68,7 +72,8 @@ class series_calculator
 		  * This virtual function is a place holder intended to allow
 		  * polymorphic deployment of derived classes holding step
 		  * functions for arbitrary sequences, such as the 
-		  * Nilakantha series. */
+		  * Nilakantha series.
+		  * @see nilakantha_series */
 		virtual double step(int i){return((double)i);}
 
 };

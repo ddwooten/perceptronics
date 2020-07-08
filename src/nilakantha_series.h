@@ -6,6 +6,8 @@
   */
 using namespace std;
 
+/* Inherit from the base class series_calculator */
+
 class nilakantha_series: public series_calculator
 {
 
@@ -13,7 +15,8 @@ class nilakantha_series: public series_calculator
 
 		/** Calculation holder. */
 		double nilakantha_term = 0;
-
+		
+		/** Constructor for the nilakantha_series. */
 		nilakantha_series();
 
 		/** Method which returns the i-th step of the Nilakantha series. */
