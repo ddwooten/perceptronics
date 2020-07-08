@@ -155,10 +155,3 @@ int series_calculator::check_input(char* input)
 	return(1);
 
 }
-
-double series_calculator::step(int i)
-{
-
-	return((double)i);
-
-}
