@@ -63,10 +63,10 @@ LDFLAGS += -fopenmp
 
 # Debugging:
 
-CFLAGS :=$(filter-out -O3,$(CFLAGS))
-CFLAGS :=$(filter-out -ffast-math,$(CFLAGS))
-CFLAGS  += -ggdb -O0
-LDFLAGS += -ggdb
+#CFLAGS :=$(filter-out -O3,$(CFLAGS))
+#CFLAGS :=$(filter-out -ffast-math,$(CFLAGS))
+#CFLAGS  += -ggdb -O0
+#LDFLAGS += -ggdb
 
 # Profiler:
 
