@@ -1,0 +1,102 @@
+\hypertarget{classseries__calculator}{}\doxysection{series\+\_\+calculator Class Reference}
+\label{classseries__calculator}\index{series\_calculator@{series\_calculator}}
+Inheritance diagram for series\+\_\+calculator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseries__calculator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseries__calculator_afa74e84b69c6337f24e4e784ab674caa}{series\+\_\+calculator}} ()
+\begin{DoxyCompactList}\small\item\em Initializer for the \mbox{\hyperlink{classseries__calculator}{series\+\_\+calculator}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classseries__calculator_ab3885604d623ec42a5c9a1a36b9d670c}{calculate}} ()
+\begin{DoxyCompactList}\small\item\em Manages threads and and calls virtual step function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classseries__calculator_a63d70a95c54e6678aba6cacea81a90f1}{check\+\_\+input}} (char $\ast$input)
+\begin{DoxyCompactList}\small\item\em Checks user input. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classseries__calculator_ae9c9b39d006a6502b7eec6e7358be149}{step}} (int \mbox{\hyperlink{classseries__calculator_affc050cc940a42e9ab8acbf8688f2e89}{i}})
+\begin{DoxyCompactList}\small\item\em Virtual function which provides i-\/th step of arbitrary series. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classseries__calculator_a387963f50a3092205eaf6d1940e873cb}\label{classseries__calculator_a387963f50a3092205eaf6d1940e873cb}} 
+int \mbox{\hyperlink{classseries__calculator_a387963f50a3092205eaf6d1940e873cb}{terms}} = 0
+\begin{DoxyCompactList}\small\item\em Holder for user input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classseries__calculator_a2bb332f5eba9a92682c034b9b05a241b}\label{classseries__calculator_a2bb332f5eba9a92682c034b9b05a241b}} 
+double \mbox{\hyperlink{classseries__calculator_a2bb332f5eba9a92682c034b9b05a241b}{sum}} = 0
+\begin{DoxyCompactList}\small\item\em Accumulator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classseries__calculator_affc050cc940a42e9ab8acbf8688f2e89}\label{classseries__calculator_affc050cc940a42e9ab8acbf8688f2e89}} 
+int \mbox{\hyperlink{classseries__calculator_affc050cc940a42e9ab8acbf8688f2e89}{i}} = 0
+\begin{DoxyCompactList}\small\item\em Standard iterator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classseries__calculator_a39778ddd7d780c42d28f53e6aae57316}\label{classseries__calculator_a39778ddd7d780c42d28f53e6aae57316}} 
+int \mbox{\hyperlink{classseries__calculator_a39778ddd7d780c42d28f53e6aae57316}{j}} = 0
+\begin{DoxyCompactList}\small\item\em Another standard iterator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classseries__calculator_ab9fb68d5fc61e3f2090067031cf2db7e}\label{classseries__calculator_ab9fb68d5fc61e3f2090067031cf2db7e}} 
+int \mbox{\hyperlink{classseries__calculator_ab9fb68d5fc61e3f2090067031cf2db7e}{do\+\_\+not\+\_\+exit}} = 1
+\begin{DoxyCompactList}\small\item\em Iterator exit variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classseries__calculator_aed4e1747b967f105dac21e5a74269b89}\label{classseries__calculator_aed4e1747b967f105dac21e5a74269b89}} 
+int \mbox{\hyperlink{classseries__calculator_aed4e1747b967f105dac21e5a74269b89}{num\+\_\+threads}} = 0
+\begin{DoxyCompactList}\small\item\em Number of threads. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classseries__calculator_ad384f52ed0db7ea9efebc48e852b4681}\label{classseries__calculator_ad384f52ed0db7ea9efebc48e852b4681}} 
+double \mbox{\hyperlink{classseries__calculator_ad384f52ed0db7ea9efebc48e852b4681}{thread\+\_\+term}} = 0
+\begin{DoxyCompactList}\small\item\em Storage per thread for unique value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classseries__calculator_afa74e84b69c6337f24e4e784ab674caa}\label{classseries__calculator_afa74e84b69c6337f24e4e784ab674caa}} 
+\index{series\_calculator@{series\_calculator}!series\_calculator@{series\_calculator}}
+\index{series\_calculator@{series\_calculator}!series\_calculator@{series\_calculator}}
+\doxysubsubsection{\texorpdfstring{series\_calculator()}{series\_calculator()}}
+{\footnotesize\ttfamily series\+\_\+calculator\+::series\+\_\+calculator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializer for the \mbox{\hyperlink{classseries__calculator}{series\+\_\+calculator}} class. 
+
+Gets system thread information. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classseries__calculator_ab3885604d623ec42a5c9a1a36b9d670c}\label{classseries__calculator_ab3885604d623ec42a5c9a1a36b9d670c}} 
+\index{series\_calculator@{series\_calculator}!calculate@{calculate}}
+\index{calculate@{calculate}!series\_calculator@{series\_calculator}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily void series\+\_\+calculator\+::calculate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Manages threads and and calls virtual step function. 
+
+calculate is a thread aware method which seeks to compute the n terms of an arbitrary series where n is gotten from user input. calculate seeks to use as many threads as the system will make available. Threads execute their calculations in parrallel and subsequently loop over themselves to return and report the value calculated by each thread. While looping for report and update takes more compute time it uses less memory, and no dynamically allocated memory, as opposed to a method in which each thread simply stored their value and the master thread dealt with the subsequent integration. Most environments are memory bound but should this algorithm be deployed in a compute bound environment thread reporting should be shifted from loops to writes. \mbox{\Hypertarget{classseries__calculator_a63d70a95c54e6678aba6cacea81a90f1}\label{classseries__calculator_a63d70a95c54e6678aba6cacea81a90f1}} 
+\index{series\_calculator@{series\_calculator}!check\_input@{check\_input}}
+\index{check\_input@{check\_input}!series\_calculator@{series\_calculator}}
+\doxysubsubsection{\texorpdfstring{check\_input()}{check\_input()}}
+{\footnotesize\ttfamily int series\+\_\+calculator\+::check\+\_\+input (\begin{DoxyParamCaption}\item[{char $\ast$}]{input }\end{DoxyParamCaption})}
+
+
+
+Checks user input. 
+
+Returns 1 for good input and returns 0 for bad input. \mbox{\Hypertarget{classseries__calculator_ae9c9b39d006a6502b7eec6e7358be149}\label{classseries__calculator_ae9c9b39d006a6502b7eec6e7358be149}} 
+\index{series\_calculator@{series\_calculator}!step@{step}}
+\index{step@{step}!series\_calculator@{series\_calculator}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily virtual double series\+\_\+calculator\+::step (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Virtual function which provides i-\/th step of arbitrary series. 
+
+This virtual function is a place holder intended to allow polymorphic deployment of derived classes holding step functions for arbitrary sequences, such as the Nilakantha series. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classnilakantha__series}{nilakantha\+\_\+series}} 
+\end{DoxySeeAlso}
+
+
+Reimplemented in \mbox{\hyperlink{classnilakantha__series_a46c1fbd402aa77ca44d9f7984daa8db2}{nilakantha\+\_\+series}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/series\+\_\+calculator.\+h\item 
+src/series\+\_\+calculator.\+cpp\end{DoxyCompactItemize}

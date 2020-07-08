@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['j_6',['j',['../classnilakantha__series.html#aabd05d6f37c1f2591f4a8ce6329ecff1',1,'nilakantha_series']]]
+  ['j_4',['j',['../classseries__calculator.html#a39778ddd7d780c42d28f53e6aae57316',1,'series_calculator']]]
 ];

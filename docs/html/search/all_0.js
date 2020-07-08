@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['calculate_0',['calculate',['../classnilakantha__series.html#a5f4c151c61a89e0cc76900e751f55d1e',1,'nilakantha_series']]],
-  ['check_5finput_1',['check_input',['../classnilakantha__series.html#a02aae76cceadcd5bd77035cdb5bc8572',1,'nilakantha_series']]]
+  ['calculate_0',['calculate',['../classseries__calculator.html#ab3885604d623ec42a5c9a1a36b9d670c',1,'series_calculator']]],
+  ['check_5finput_1',['check_input',['../classseries__calculator.html#a63d70a95c54e6678aba6cacea81a90f1',1,'series_calculator']]]
 ];

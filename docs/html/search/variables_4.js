@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sum_27',['sum',['../classnilakantha__series.html#a6cc73e93cb545e6942e753f0b98145c2',1,'nilakantha_series']]]
+  ['sum_25',['sum',['../classseries__calculator.html#a2bb332f5eba9a92682c034b9b05a241b',1,'series_calculator']]]
 ];
