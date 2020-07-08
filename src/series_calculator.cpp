@@ -156,9 +156,9 @@ int series_calculator::check_input(char* input)
 
 }
 
-virtual int series_calculator::step(int i)
+virtual double series_calculator::step(int i)
 {
 
-	return(0);
+	return((double)i);
 
 }
