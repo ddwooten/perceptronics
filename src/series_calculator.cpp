@@ -60,14 +60,14 @@ void series_calculator::calculate()
 
 			/* In order, add and print to screen the thread values to the sum */
 
-			while(true)
+			do
 			{
 
 				/* Pause so that all threads are ready */
 
 				#pragma omp barrier
 
-				if(thread_num == j)
+				if((thread_num == j) && (i < terms))
 				{
 
 					sum += thread_term;
@@ -84,20 +84,18 @@ void series_calculator::calculate()
 
 				}
 
-				/* Make sure all threads wait to continue together */
-
-				#pragma omp barrier
-
 				/* If we have finished printing, exit */
 
 				if((j == num_threads) || (i == terms))
 				{
 
-					break;
+					do_not_exit = 0;
 
 				}
 
-			}
+				#pragma omp barrier
+
+			} while(do_not_exit);
 
 		}
 

@@ -25,6 +25,9 @@ class series_calculator
 		/** Another standard iterator. */  
 		int j = 0;   
 
+		/** Iterator exit variable. */
+		int do_not_exit = 1;
+
 		/** Number of threads. */
 		int num_threads = 0;
 
